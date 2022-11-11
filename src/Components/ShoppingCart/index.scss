@@ -1,0 +1,38 @@
+@import "../../variables.scss";
+@import "../../mixy-sass/mixy";
+@import "../../mixy-sass/setting";
+
+.shopping_cart {
+    & .card {
+        border-radius: 40px !important;
+
+        @include media-mobile-xs {
+            flex-wrap: wrap;
+        }
+    }
+
+
+
+    & .summary {
+        & p {
+            font-size: 18px;
+        }
+    }
+}
+
+.qty {
+    & input {
+        padding   : 0;
+        text-align: center;
+    }
+
+    & fieldset {
+        border: none;
+    }
+
+    & button {
+        padding   : 12px;
+        background: none;
+        color     : $black-color;
+    }
+}

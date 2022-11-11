@@ -1,0 +1,99 @@
+@import "../../variables.scss";
+@import "../../mixy-sass/mixy";
+@import "../../mixy-sass/setting";
+
+.login-section {
+    height: 100%;
+
+    & .panel {
+        display: none;
+
+        &.active {
+            display: flex;
+        }
+    }
+
+    & .sidebox {
+        background-color: $primary-color;
+        @include border-radius(50px 0 0 50px);
+        height: 500px;
+
+        @include media-mobile-md-max {
+            height: 180px;
+            @include border-radius(50px 0 0 0);
+        }
+
+
+        & img {
+            @include media-mobile-md-max {
+                width: 100px;
+            }
+
+            vertical-align: bottom;
+        }
+
+        & .title {
+            color: $black-light-color;
+        }
+
+        & .content {
+            color: $black-light-color;
+        }
+    }
+
+    & .field {
+
+        & p {
+            font-size  : 13px;
+            font-weight: 400;
+            color      : $black-light-color;
+        }
+
+        & a {
+            font-weight: 500;
+            font-size  : 14px;
+
+            &:hover {
+                color: $primary-color;
+            }
+        }
+
+        & .link {
+            color: $link-color;
+        }
+
+        & .otp {
+            display        : flex;
+            justify-content: center;
+
+            & input {
+                margin       : 0;
+                border       : none;
+                border-bottom: 1px solid #E9E9E9;
+
+                &:focus-visible {
+                    outline: none;
+                }
+            }
+        }
+    }
+}
+
+/* Dialog Box */
+.logindialog {
+    & .MuiPaper-root {
+        @include border-radius(50px);
+
+        & .MuiDialogContent-root {
+            padding: 0;
+        }
+    }
+}
+
+.close-btn {
+    right: 25px;
+
+    @include media-mobile-sm {
+        right: 10px;
+    }
+}

@@ -1,0 +1,57 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="219" height="200" viewBox="0 0 219 200">
+  <defs>
+    <filter id="Oval" x="21.334" y="11.834" width="180.397" height="180.397" filterUnits="userSpaceOnUse">
+      <feOffset dy="8" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="12" result="blur"/>
+      <feFlood flood-color="#eda3b5" flood-opacity="0.302"/>
+      <feComposite operator="in" in2="blur"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Oval-2" x="16" y="6" width="77" height="78" filterUnits="userSpaceOnUse">
+      <feOffset dy="8" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="12" result="blur-2"/>
+      <feFlood flood-color="#eda3b5" flood-opacity="0.302"/>
+      <feComposite operator="in" in2="blur-2"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Oval-3" x="133" y="113" width="86" height="87" filterUnits="userSpaceOnUse">
+      <feOffset dy="8" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="12" result="blur-3"/>
+      <feFlood flood-color="#eda3b5" flood-opacity="0.302"/>
+      <feComposite operator="in" in2="blur-3"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Oval-4" x="115" y="0" width="81" height="81" filterUnits="userSpaceOnUse">
+      <feOffset dy="8" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="12" result="blur-4"/>
+      <feFlood flood-color="#eda3b5" flood-opacity="0.302"/>
+      <feComposite operator="in" in2="blur-4"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+    <filter id="Oval-5" x="0" y="101" width="81" height="81" filterUnits="userSpaceOnUse">
+      <feOffset dy="8" input="SourceAlpha"/>
+      <feGaussianBlur stdDeviation="12" result="blur-5"/>
+      <feFlood flood-color="#eda3b5" flood-opacity="0.302"/>
+      <feComposite operator="in" in2="blur-5"/>
+      <feComposite in="SourceGraphic"/>
+    </filter>
+  </defs>
+  <g id="Group_4186" data-name="Group 4186" transform="translate(-535.507 -121.683)">
+    <g transform="matrix(1, 0, 0, 1, 535.51, 121.68)" filter="url(#Oval)">
+      <circle id="Oval-6" data-name="Oval" cx="54.198" cy="54.198" r="54.198" transform="translate(57.33 39.83)" fill="#cfe9cc"/>
+    </g>
+    <g transform="matrix(1, 0, 0, 1, 535.51, 121.68)" filter="url(#Oval-2)">
+      <ellipse id="Oval-7" data-name="Oval" cx="2.5" cy="3" rx="2.5" ry="3" transform="translate(52 34)" fill="#cfe9cc"/>
+    </g>
+    <g transform="matrix(1, 0, 0, 1, 535.51, 121.68)" filter="url(#Oval-3)">
+      <ellipse id="Oval-8" data-name="Oval" cx="7" cy="7.5" rx="7" ry="7.5" transform="translate(169 141)" fill="#cfe9cc"/>
+    </g>
+    <g transform="matrix(1, 0, 0, 1, 535.51, 121.68)" filter="url(#Oval-4)">
+      <circle id="Oval-9" data-name="Oval" cx="4.5" cy="4.5" r="4.5" transform="translate(151 28)" fill="#cfe9cc"/>
+    </g>
+    <g transform="matrix(1, 0, 0, 1, 535.51, 121.68)" filter="url(#Oval-5)">
+      <circle id="Oval-10" data-name="Oval" cx="4.5" cy="4.5" r="4.5" transform="translate(36 129)" fill="#cfe9cc"/>
+    </g>
+    <path id="check" d="M0,12.772l16.7,15.2L47.424,0" transform="translate(623.327 201.732)" fill="none" stroke="#000" stroke-linecap="round" stroke-linejoin="round" stroke-miterlimit="10" stroke-width="3"/>
+  </g>
+</svg>

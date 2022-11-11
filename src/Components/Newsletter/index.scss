@@ -1,0 +1,13 @@
+@import "../../variables.scss";
+@import "../../mixy-sass/mixy";
+@import "../../mixy-sass/setting";
+
+.newsletter {
+    @include media-desktop-lg-min {
+        background-color: $gray-light-color;
+    }
+
+    & .MuiOutlinedInput-notchedOutline {
+        border: none;
+    }
+}

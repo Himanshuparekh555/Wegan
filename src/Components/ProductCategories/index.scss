@@ -1,0 +1,45 @@
+@import "../../variables.scss";
+@import "../../mixy-sass/mixy";
+@import "../../mixy-sass/setting";
+
+.categories {
+
+    & .swiper {
+        &.home_categories {
+            @include media-desktop-lg-min {
+                padding: 100px 65px;
+            }
+
+            @include media-mobile-md-max {
+                padding: 30px 20px;
+            }
+        }
+
+        & .swiper-button-prev,
+        & .swiper-button-next {
+            width           : 50px;
+            height          : 50px;
+            background-color: $primary-color;
+            @include border-radius(100px);
+
+            &::after {
+                font-size  : 16px;
+                color      : $black-color;
+                font-weight: bold;
+            }
+
+            &.swiper-button-disabled {
+                opacity         : 1;
+                background-color: $gray-color;
+            }
+        }
+
+        .swiper-button-prev {
+            left: 0;
+        }
+
+        .swiper-button-next {
+            right: 0;
+        }
+    }
+}

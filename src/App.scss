@@ -1,0 +1,212 @@
+@import "./variables.scss";
+@import "./mixy-sass/mixy";
+@import "./mixy-sass/setting";
+
+/* Fonts */
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Mulish:wght@400;700&family=Poppins:wght@300;400;500;600;700&display=swap');
+
+/* CSS */
+* {
+  margin : 0;
+  padding: 0;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  font-family: $primary-font !important;
+  color      : $black-light-color !important;
+}
+
+a,
+button {
+  @include transition(all 300ms ease-in-out);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+button,
+span {
+  font-family   : $primary-font !important;
+  text-transform: capitalize !important;
+}
+
+.MuiOutlinedInput-notchedOutline {
+  border-radius: 50px !important;
+  border-color : $gray-color !important;
+}
+
+.btn-theme {
+  font-family     : $primary-font !important;
+  background-color: $primary-color !important;
+  color           : $black-color !important;
+  font-weight     : 500 !important;
+  text-transform  : capitalize !important;
+  font-size       : 16px !important;
+
+  &:hover {
+    background-color: #ADCEA9 !important;
+  }
+}
+
+.btn-outline {
+  background    : none !important;
+  color         : $black-color !important;
+  border        : 1px solid $primary-color !important;
+  font-weight   : 500 !important;
+  text-transform: capitalize !important;
+  font-size     : 16px !important;
+
+  &:hover {
+    background-color: $primary-color !important;
+  }
+}
+
+.btn-secondary {
+  font-size     : 16px !important;
+  background    : none !important;
+  font-weight   : 400 !important;
+  color         : $black-color !important;
+  border-color  : $gray-color !important;
+  text-transform: capitalize !important;
+}
+
+.btn_shop {
+  border        : 2px solid $primary-color !important;
+  color         : $black-color !important;
+  font-family   : $secondary-font !important;
+  font-weight   : 600 !important;
+  text-transform: capitalize !important;
+  font-size     : 18px !important;
+  padding       : 6px 0 !important;
+
+  &:hover {
+    background-color: $primary-color !important;
+  }
+
+  @include media-mobile-md-max {
+    background-color: $primary-color !important;
+    font-size       : 13px !important;
+  }
+}
+
+.favorite {
+  & .Mui-checked {
+    & svg {
+      color: $link-color;
+    }
+  }
+}
+
+.w-100 {
+  width: 100%;
+}
+
+.h-100 {
+  height: 100%;
+}
+
+#root {
+  height: 100%;
+}
+
+.cursor-p {
+  cursor: pointer;
+}
+
+/* Heading */
+.heading1 {
+  font-size  : 46px !important;
+  color      : $black-light-color !important;
+  font-weight: 600 !important;
+  line-height: 60px !important;
+
+  @include media-mobile-sm {
+    line-height: 45px !important;
+    font-size  : 36px !important;
+  }
+}
+
+.heading2 {
+  color      : $black-text-color !important;
+  font-size  : 32px !important;
+  font-weight: 500 !important;
+
+  @include media-mobile-sm {
+    font-size: 24px !important;
+  }
+}
+
+.heading3 {
+  color      : $black-light-color !important;
+  font-size  : 34px !important;
+  font-weight: 600 !important;
+
+  @include media-mobile-md-max {
+    font-size  : 24px !important;
+    line-height: 32px !important;
+  }
+}
+
+/* Image */
+.browseImage {
+  padding-top: 70%;
+
+  & img {
+    width : 100%;
+    height: 100%;
+  }
+}
+
+/* Dropdown*/
+#profile-dropdown,
+.MuiPopover-root {
+  & .MuiPaper-root {
+    background-color: rgba(255, 255, 255, 0.5) !important;
+    backdrop-filter : blur(10px); // This be the blur
+    border-radius   : 20px !important;
+
+    & ul {
+      & li {
+        font-family: $primary-font;
+        font-size  : 14px;
+      }
+    }
+  }
+}
+
+/* breadcrumbs*/
+.breadcrumbs {
+  & ol {
+    & li {
+      & p {
+        font-size  : 14px;
+        font-family: $primary-font;
+        color      : $primary-color;
+      }
+
+      & a {
+        font-family: $primary-font;
+        font-size  : 14px;
+        color      : $black-color;
+
+        &:hover {
+          color: $primary-color;
+        }
+      }
+    }
+  }
+
+  @include media-mobile-md-max {
+    display: none;
+  }
+}

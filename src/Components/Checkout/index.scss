@@ -1,0 +1,101 @@
+@import "../../variables.scss";
+@import "../../mixy-sass/mixy";
+@import "../../mixy-sass/setting";
+
+.checkout_section {
+    & .indicators {
+        position  : relative;
+        margin-top: 100px;
+
+        @include media-mobile-md-max {
+            margin-top: 30px;
+        }
+
+        &::after {
+            border-bottom                   : 1px solid $gray-color;
+            content                         : "";
+            @include position(absolute, $top:25, $left:0, $right:0);
+            z-index                         : -1;
+        }
+
+        & li {
+            width           : 40px;
+            height          : 40px;
+            border          : 1px solid $gray-color;
+            background-color: $white-color;
+            font-family     : $primary-font;
+            font-weight     : 600;
+            font-size       : 20px;
+            border-radius   : 100%;
+            display         : flex;
+            align-items     : center;
+            justify-content : center;
+
+            &.active {
+                background-color: $primary-color;
+            }
+        }
+    }
+
+    & .btn-login {
+        background: none !important;
+        border    : 1px solid $white-color;
+        color     : $black-color;
+
+        &:hover {
+            border: 1px solid $gray-color;
+        }
+    }
+
+    & .summary {
+        & p {
+            font-size  : 18px;
+            font-weight: 500;
+        }
+    }
+
+
+    & .payment-method {
+        border-bottom: 1px solid $gray-color;
+        border-radius: 0 !important;
+        padding      : 20px 0;
+
+        &::before {
+            display: none;
+        }
+
+        & #panel1a-header {
+            min-height: auto !important;
+        }
+
+        & .MuiAccordionSummary-content {
+            position    : relative;
+            padding-left: 40px;
+            margin      : 10px 0;
+
+            &::before {
+                @include position(absolute, $left:0, $top:4px, );
+                @include border-radius(100px);
+                background-color: $gray-color;
+                width           : 20px;
+                height          : 20px;
+                content         : "";
+            }
+
+            &.Mui-expanded {
+                &::before {
+                    background-color: $white-color;
+                }
+
+                &::after {
+                    @include position(absolute, $left:0, $top:4px, );
+                    @include border-radius(100px);
+                    border : 5px solid $primary-color;
+                    width  : 11px;
+                    height : 11px;
+                    content: "";
+                }
+            }
+        }
+    }
+}

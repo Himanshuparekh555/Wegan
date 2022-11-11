@@ -1,0 +1,67 @@
+@import "../variables.scss";
+@import "../mixy-sass/mixy";
+@import "../mixy-sass/setting";
+
+.top_section {
+    & .des {
+        font-size  : 16px;
+        font-weight: 500;
+    }
+
+
+}
+
+.search_box {
+    border: 1px solid $gray-color;
+
+    & .MuiOutlinedInput-notchedOutline {
+        border: none;
+    }
+
+    & button:hover {
+        & svg {
+            & path {
+                fill: $link-color
+            }
+        }
+    }
+}
+
+.NewArrivalsBanners {
+    & .banner_box {
+        @include transition(all 200ms ease-in-out);
+
+        & .tag {
+            background-color: $primary-color;
+            font-family     : $secondary-font !important;
+            font-weight     : 700;
+            color           : $black-light-color;
+            font-size       : 18px;
+            padding         : 7px 21px;
+        }
+
+        & .heading3 {
+            font-size  : 32px !important;
+            font-weight: 500;
+            color      : $black-light-color;
+            opacity    : 0.9;
+        }
+
+        & img {
+            @include transform(scale(1));
+            @include transition(all 300ms ease-in-out);
+        }
+
+        &:hover {
+            background-color: $gray-light-color;
+
+            & img {
+                @include transform(scale(1.1));
+            }
+        }
+
+        @include media-mobile-md-max {
+            background-color: $gray-light-color;
+        }
+    }
+}

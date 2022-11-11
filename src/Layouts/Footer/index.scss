@@ -1,0 +1,123 @@
+@import "../../variables.scss";
+@import "../../mixy-sass/mixy";
+@import "../../mixy-sass/setting";
+
+footer {
+    & .links {
+        border-bottom: 1px solid $gray-color;
+
+        & ul {
+
+            @include media-mobile-sm-min {
+                display        : flex;
+                align-items    : center;
+                justify-content: center;
+            }
+
+            & li {
+                position: relative;
+
+                @include media-mobile-sm {
+                    justify-content: center;
+                }
+
+                & a {
+                    color          : $black-text-color;
+                    font-weight    : 500;
+                    font-family    : $primary-font;
+                    text-decoration: none;
+
+                    &:hover,
+                    &.select {
+                        color: $link-color;
+
+                        &::after {
+                            background-color                   : $primary-color;
+                            @include position(absolute, $bottom:-8px, $left:0, $right:0);
+                            margin                             : auto;
+                            content                            : "";
+                            width                              : 1.5px;
+                            height                             : 10px;
+                        }
+                    }
+                }
+
+                &:hover {
+                    background: none !important
+                }
+            }
+        }
+    }
+
+    & .footer_info {
+        & ul {
+            @include media-mobile-sm-min {
+                display        : flex;
+                align-items    : center;
+                justify-content: space-between;
+            }
+
+            & li {
+                position : relative;
+                min-width: 200px;
+
+                @include media-mobile-md-max {
+                    margin: 10px 0;
+                }
+
+                @include media-desktop-lg-min {
+                    &:last-child {
+                        &::after {
+                            display: none;
+                        }
+                    }
+
+                    &::after {
+                        @include position(absolute, $right:-50px, $top:0, $bottom:0);
+                        content                           : "";
+                        background-color                  : $gray-color;
+                        width                             : 1px;
+                        height                            : 100%;
+                    }
+                }
+
+                & .title {
+                    font-size  : 18px;
+                    font-weight: 500;
+                }
+
+                & p {
+                    font-size: 15px;
+                }
+
+                &.active {
+                    color: $link-color;
+
+                    & svg {
+                        & path {
+                            fill: $link-color;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    & .footer_info_details {
+        display: none;
+
+        &.active {
+            display: block;
+        }
+
+        & p {
+            color      : $gray-dark-color;
+            font-size  : 13px;
+            line-height: 25px;
+        }
+
+        & iframe {
+            @include border-radius(20px);
+        }
+    }
+}

@@ -1,0 +1,99 @@
+@import "../../variables.scss";
+@import "../../mixy-sass/mixy";
+@import "../../mixy-sass/setting";
+
+.myaccount-section {
+    background-color: $gray-light-color;
+
+    & .filters {
+        @include media-mobile-md-max {
+            @include position(fixed, $top:0, $bottom:0, $right:-300px);
+            z-index                      : 999;
+            width                        : 300px;
+            height                       : 100%;
+            overflow                     : auto;
+            @include transition(all 300ms ease-in-out);
+
+
+            &.active {
+                right: 0;
+            }
+        }
+    }
+
+    & .sidebar {
+        & a {
+            cursor: pointer;
+
+            &:hover,
+            &.active {
+                color: $link-color;
+
+                & svg {
+                    & path {
+                        fill: $link-color;
+                    }
+                }
+            }
+        }
+
+        & span {
+            font-size  : 16px;
+            font-weight: 500;
+            font-family: $primary-font;
+            display    : flex;
+        }
+    }
+
+    & .card_name {
+        & input.MuiInputBase-input {
+            padding: 0;
+        }
+
+        & fieldset {
+            border: 0 !important;
+        }
+    }
+
+    & .stepper {
+        & .MuiStepLabel-iconContainer {
+            & svg {
+                width : 30px;
+                height: 30px;
+                color : $gray-color;
+
+                @include media-mobile-md-max {
+                    width : 20px;
+                    height: 20px;
+                }
+
+                &.Mui-completed,
+                &.Mui-active {
+                    color: $primary-color;
+                }
+
+                & .MuiStepIcon-text {
+                    fill       : $black-color;
+                    font-weight: 600;
+                    font-family: $primary-font;
+                }
+            }
+        }
+    }
+
+    & .overlay {
+        background                   : rgba(0, 0, 0, 0.5);
+        @include position(fixed, $top:0, $bottom:0, $right:0);
+        z-index                      : 9;
+        width                        : 100%;
+        height                       : 100%;
+        opacity                      : 0;
+        visibility                   : hidden;
+        @include transition(all 300ms ease-in-out);
+
+        &.active {
+            opacity   : 1;
+            visibility: visible;
+        }
+    }
+}

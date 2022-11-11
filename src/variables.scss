@@ -1,0 +1,62 @@
+/* ====== Variables ======== */
+
+/* Fonts */
+$primary-font:'Poppins',
+sans-serif;
+$secondary-font:'Mulish',
+sans-serif;
+
+/* Color */
+$primary-color    :#CFE9CC;
+$link-color       :#A4D59E;
+$black-color      :#000000;
+$black-text-color :#1B2437;
+$black-light-color:#3C3A3A;
+$gray-color       :#F2F2F2;
+$gray-dark-color  :#8E8E93;
+$gray-light-color : #F8F8F8;
+$white-color      :#ffffff;
+
+
+// Media Queries
+@mixin media-desktop-lg-min {
+    @media screen and (min-width : 1025px) {
+        @content;
+    }
+}
+
+@mixin media-desktop-lg-max {
+    @media screen and (max-width : 1024px) {
+        @content;
+    }
+}
+
+@mixin media-mobile-md-min {
+    @media screen and (min-width : 900px) {
+        @content;
+    }
+}
+
+@mixin media-mobile-md-max {
+    @media screen and (max-width : 900px) {
+        @content;
+    }
+}
+
+@mixin media-mobile-sm-min {
+    @media screen and (min-width : 600px) {
+        @content;
+    }
+}
+
+@mixin media-mobile-sm {
+    @media screen and (max-width : 600px) {
+        @content;
+    }
+}
+
+@mixin media-mobile-xs {
+    @media screen and (max-width : 470px) {
+        @content;
+    }
+}
