@@ -1,4 +1,4 @@
-import React, { } from "react";
+import * as React from 'react';
 import "./index.scss";
 import {ReactComponent as SuccessIcon} from '../../Images/svg/success_icon.svg';
 // Material Ints
@@ -10,8 +10,7 @@ import {
     Button,
 } from "@mui/material";
 
-
-const OrderedSuccessfully = ({}) => {
+function OrderedSuccessfully() {
     return (
         <>
         <Container>

@@ -8,11 +8,6 @@ import 'swiper/scss';
 import 'swiper/scss/navigation';
 import 'swiper/scss/pagination';
 
-import BekaryImg from '../../Images/bekary.png';
-import DairyImg from '../../Images/dairy.png';
-import FlourImg from '../../Images/flour_mill.png';
-import FruitImg from '../../Images/ry_fruit.png';
-import VegImg from '../../Images/veg.png';
 import BekaryIcon from '../../Images/svg/bekary.svg';
 import DairyIcon from '../../Images/svg/dairy.svg';
 import FlourIcon from '../../Images/svg/flour_mill.svg';
@@ -40,7 +35,25 @@ const CategoriesData = [
     }, 
      {   img:ProductImage, 
         name: 'Vegan recipe inspired other cultures',
-        icon:BekaryIcon,
+        icon:DairyIcon,
+        height: '400', 
+        alt:'Category Image',
+    }, 
+     {   img:ProductImage, 
+        name: 'Vegan recipe inspired other cultures',
+        icon:FlourIcon,
+        height: '400', 
+        alt:'Category Image',
+    }, 
+     {   img:ProductImage, 
+        name: 'Vegan recipe inspired other cultures',
+        icon:FruitIcon,
+        height: '400', 
+        alt:'Category Image',
+    }, 
+     {   img:ProductImage, 
+        name: 'Vegan recipe inspired other cultures',
+        icon:VegIcon,
         height: '400', 
         alt:'Category Image',
     }, 
@@ -52,25 +65,25 @@ const CategoriesData = [
     }, 
      {   img:ProductImage, 
         name: 'Vegan recipe inspired other cultures',
-        icon:BekaryIcon,
+        icon:DairyIcon,
         height: '400', 
         alt:'Category Image',
     }, 
      {   img:ProductImage, 
         name: 'Vegan recipe inspired other cultures',
-        icon:BekaryIcon,
+        icon:FlourIcon,
         height: '400', 
         alt:'Category Image',
     }, 
      {   img:ProductImage, 
         name: 'Vegan recipe inspired other cultures',
-        icon:BekaryIcon,
+        icon:FruitIcon,
         height: '400', 
         alt:'Category Image',
     }, 
      {   img:ProductImage, 
         name: 'Vegan recipe inspired other cultures',
-        icon:BekaryIcon,
+        icon:VegIcon,
         height: '400', 
         alt:'Category Image',
     }, 
@@ -188,8 +201,8 @@ const BlogDetail = ({}) => {
                                             <ImageBackdrop className="MuiImageBackdrop-root" />
                                             
                                             <Image sx={{ display:"flex",alignItems:"center",flexDirection:'column'}}>
-                                                <Box sx={{backgroundColor:'#CFE9CC',width:'50px',height:'50px', p:0,borderRadius:10,display:'flex',alignItems:'center',justifyContent:'center',}}>
-                                                    <img src={data.icon} alt=""/>
+                                                <Box sx={{backgroundColor:'#333',width:'50px',height:'50px', p:0,borderRadius:10,display:'flex',alignItems:'center',justifyContent:'center',}}>
+                                                    <img className="icon" src={data.icon} alt=""/>
                                                 </Box>
                                                 <Typography
                                                     component="span"

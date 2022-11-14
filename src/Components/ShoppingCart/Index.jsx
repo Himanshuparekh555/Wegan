@@ -24,7 +24,7 @@ import ClearIcon from '@mui/icons-material/Clear';
 import ProductImage from '../../Images/product_image.png';
 
 
-const ShoppingCart = ({}) => {
+function ShoppingCart() {
     const navigate = useNavigate();
     const navigateToCheckout = () => {
     // navigate to Checkout 

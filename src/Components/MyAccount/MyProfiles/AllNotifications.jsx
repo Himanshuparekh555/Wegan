@@ -1,4 +1,4 @@
-import React, {} from "react";
+import * as React from 'react';
 import "../index.scss";
 import {ReactComponent as NotificationIcon} from '../../../Images/svg/notification_icon.svg';
 // Material Ints
@@ -10,11 +10,8 @@ import {
     ListItemAvatar,
     Avatar, 
 } from "@mui/material";
-import { red,grey } from '@mui/material/colors';
-import DeleteIcon from '@mui/icons-material/Delete';
-import PopupState, { bindToggle, bindPopper } from 'material-ui-popup-state';
 
-const AllNotifications = ({}) => {
+function AllNotifications() {
       return (
           <>
             <Typography gutterBottom variant="h2" sx={{ fontSize:18,fontWeight:500,mb:3.5}}>

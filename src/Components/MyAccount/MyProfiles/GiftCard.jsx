@@ -1,5 +1,4 @@
 import React, { useState, } from "react";
-import { useNavigate } from "react-router-dom";
 import "../index.scss";
 import GiftIcon from '../../../Images/gift_icon.png';
 // Material Ints

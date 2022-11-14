@@ -66,7 +66,7 @@ const Login = ({}) => {
                                 </Typography>
                             </Box>
                             <Box sx={{ alignSelf:"flex-end",width:"100%",textAlign:"center" }}>
-                                <img src={GoVeganImg}/>
+                                <img alt="Wegan" src={GoVeganImg}/>
                             </Box>
                         </Box>
                     </Grid>
@@ -136,7 +136,7 @@ const Login = ({}) => {
                                 </Typography>
                             </Box>
                             <Box sx={{ alignSelf:"flex-end",width:"100%",textAlign:"center" }}>
-                                <img src={GoVeganImg}/>
+                                <img alt="Wegan" src={GoVeganImg}/>
                             </Box>
                         </Box>
                     </Grid>
@@ -195,7 +195,7 @@ const Login = ({}) => {
                                     </Typography>
                                 </Box>
                                 <Box sx={{ alignSelf:"flex-end",width:1000,textAlign:"center" }}>
-                                    <img src={GoVeganImg}/>
+                                    <img alt="Wegan" src={GoVeganImg}/>
                                 </Box>
                             </Box>
                         </Grid>
@@ -263,7 +263,7 @@ const Login = ({}) => {
                                 </Typography>
                             </Box>
                             <Box sx={{ alignSelf:"flex-end",width:1000,textAlign:"center" }}>
-                                <img src={GoVeganImg}/>
+                                <img alt="Wegan" src={GoVeganImg}/>
                             </Box>
                         </Box>
                     </Grid>

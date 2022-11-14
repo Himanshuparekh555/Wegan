@@ -10,7 +10,7 @@ import {
     Typography,
 } from "@mui/material";
 
-const HomeTopSection = ({}) => {
+function HomeTopSection() {
     return (
         <>
             <Box className='top_section' sx={{ pt:6,pb:6}}>
@@ -26,7 +26,7 @@ const HomeTopSection = ({}) => {
                            <SearchBox/>
                         </Grid>
                         <Grid item xs={8} sm={8} md={4} lg={4} order={{ xs: 0, md: 1 }}>
-                            <img className='w-100' src={TreeImg}/>
+                            <img alt="" className='w-100' src={TreeImg}/>
                         </Grid>
                     </Grid>
                 </Container>

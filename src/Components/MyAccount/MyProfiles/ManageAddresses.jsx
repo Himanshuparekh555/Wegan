@@ -1,5 +1,4 @@
 import React, { useState, } from "react";
-import { useNavigate } from "react-router-dom";
 import "../index.scss";
 import {ReactComponent as HomeIcon} from '../../../Images/home_icon.svg';
 // Material Ints

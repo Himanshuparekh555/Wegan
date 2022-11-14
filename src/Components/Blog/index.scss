@@ -59,6 +59,15 @@
           padding: 100px 65px;
       }
 
+      & .swiper-slide {
+          & button {
+              & .icon {
+                  width : 25px;
+                  height: 25px;
+              }
+          }
+      }
+
       & .swiper-button-prev,
       & .swiper-button-next {
           width           : 50px;
