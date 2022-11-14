@@ -1,7 +1,5 @@
 import React, { useState, } from "react";
-import { useNavigate } from "react-router-dom";
 import "../index.scss";
-import {ReactComponent as HomeIcon} from '../../../Images/home_icon.svg';
 // Material Ints
 import {
     Box,
@@ -12,14 +10,11 @@ import {
     CardContent,
     Input,
 } from "@mui/material";
-import LocationSearchingIcon from '@mui/icons-material/LocationSearching';
-import { grey } from '@mui/material/colors';
 import DeleteIcon from '@mui/icons-material/Delete';
 import EditIcon from '@mui/icons-material/Edit';
-import AddIcon from '@mui/icons-material/Add';
 
 
-const Savecarddetails = ({}) => {
+const Savecarddetails = () => {
       const [isOpened, setIsOpened] = useState(false);
       const [visible, setVisible] = useState(true);
       function toggle() {

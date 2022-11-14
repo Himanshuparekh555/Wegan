@@ -10,7 +10,7 @@ import WhyUs from "../Components/WhyUs/Index";
 import CustomerReview from "../Components/CustomerReview/Index";
 import Newsletter from "../Components/Newsletter/Index";
 
-const HomePage = ({}) => {
+const HomePage = () => {
     return (
         <>
             <HomeTopSection/>

@@ -12,7 +12,7 @@ import {
 import CartEmptyImage from '../../Images/svg/cart-empty.svg';
 
 
-const ShoppingCartEmpty = ({}) => {
+const ShoppingCartEmpty = () => {
     const navigate = useNavigate();
     const navigateToHome = () => {
     // navigate to Checkout 

@@ -6,7 +6,6 @@ import LoginCheckout from "./Stepper/LoginCheckout";
 import ShippingDetails from "./Stepper/ShippingDetails";
 import OrderSummery from "./Stepper/OrderSummery";
 import PaymentMethod from "./Stepper/PaymentMethod";
-import ProductImage from '../../Images/product_image.png';
 
 // Material Ints
 import {
@@ -14,34 +13,19 @@ import {
     Box,
     Container,
     Typography,
-    Button,
     Link,
     List,
     ListItem,
-    ListItemText,
-    ListItemAvatar,
-    Avatar,
-    FormControlLabel,
-    TextField,
     Breadcrumbs,
 } from "@mui/material";
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
-import ClearIcon from '@mui/icons-material/Clear';
 
 
-const Checkout = ({}) => {
+const Checkout = () => {
     
     const navigate = useNavigate();
     // Stepper
     const [isActiveStep, setActiveStep] = useState(1);
-    const Previous = (e) => {
-        let step = isActiveStep ? isActiveStep - 1 : 1;
-        setActiveStep(step);
-    };
-    const Continue = (e) => {
-        let step = isActiveStep ? isActiveStep + 1 : 1;
-        setActiveStep(step);
-    };
     return (
         <>
         <Box className='checkout_section' sx={{mt:8,mb:6,}}>

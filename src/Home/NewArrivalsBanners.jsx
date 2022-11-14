@@ -15,12 +15,13 @@ import SellerBanner from '../../src/Images/best_sellers.png';
 import NewarrivalBnner from '../../src/Images/new_arrivals.png';
 // Data
 const NewArrivals = [
-    { img: NewarrivalBnner, tag: 'New', name: 'New Arrivals',link:'SHOP NOW' },
+    { img: NewarrivalBnner, tag: 'New', name: 'New Arrivals',link:'SHOP NOW',alt:'Banner' },
     
-    { img:SellerBanner,tag: 'New', name: 'Best Seller',link:'SHOP NOW' },
+    { img:SellerBanner,tag: 'New', name: 'Best Seller',link:'SHOP NOW', alt:'Banner' },
 
 ];
-const NewArrivalsBanners = ({}) => {
+
+function NewArrivalsBanners() {
     return (
         <>
             <Box className='NewArrivalsBanners' paddingTop={{xl:'50px',md:'50px',lg:'80px'}} paddingBottom={{xl:'50px',md:'50px',lg:'80px'}}>
@@ -40,7 +41,7 @@ const NewArrivalsBanners = ({}) => {
                                             <Link href="#" underline="none" color="inherit" fontSize={16}><Box sx={{ display:"flex",alignItems:"center"}}>{data.link}<ChevronRightIcon sx={{ fontSize: 20,color: grey[800] }}/></Box></Link>
                                             </Grid>                                                    
                                             <Grid item xs={4} sm={4} md={4}>
-                                                <img className='w-100' src={data.img}/>
+                                                <img alt={data.alt} className='w-100' src={data.img}/>
                                             </Grid>
                                     </Grid>  
                                 </Box>  

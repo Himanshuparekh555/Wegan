@@ -12,26 +12,17 @@ import {
     Typography,
     TextField,
     Link,
-    IconButton,
-    Card,
-    CardContent,
     Paper,
-    styled,
-    Chip,
-    Radio,
-    RadioGroup,
     Divider,
     FormGroup,
     Checkbox,
-    FormControl,
-    FormLabel,
     FormControlLabel,
 } from "@mui/material";
 import { green } from '@mui/material/colors';
 import FilterListIcon from '@mui/icons-material/FilterList';
 import {ReactComponent as SearchIcon} from '../../../Images/svg/search_icon.svg';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
-const MyOrder = ({}) => {
+const MyOrder = () => {
     const navigate = useNavigate();
     const navigateToOrderDetail = () => {
     // navigate to Order Detail 
@@ -114,10 +105,10 @@ const MyOrder = ({}) => {
                                 <Grid item xs={9} sm={10} md={12}>
                                     <Box sx={{ display:"flex",alignItems:"center",borderRadius:10,height:60,position:'relative',}}>
                                         <TextField fullWidth placeholder='Search your order here…' variant="outlined" />
-                                        <Box display={{xs:'none',xs:'none',lg:'block'}}>
+                                        <Box display={{xs:'none',md:'none',lg:'block'}}>
                                             <Button className="btn-theme"  sx={{height:60,borderRadius:10,pl:6,pr:6,position:'absolute',top:0,bottom:0,right:0}}>{"Search Order"}</Button>
                                         </Box>
-                                         <Box display={{xs:'block',xs:'block',lg:'none'}} >
+                                         <Box display={{xs:'block',md:'block',lg:'none'}} >
                                             <Button sx={{minWidth:'auto', height:60,borderRadius:10,pl:0,pr:0,position:'absolute',top:0,bottom:0,right:'10px'}}><SearchIcon/></Button>
                                         </Box>
                                     </Box> 
@@ -147,7 +138,7 @@ const MyOrder = ({}) => {
                                             <NavigateNextIcon  sx={{ position:'absolute',top:0,bottom:0,right:0,margin:'auto'}}/>
                                         </Box>
                                     </Grid>
-                                    <Grid item xs={12} sm={6} md={4} display={{xs:'none',xs:'none',lg:'block'}} >
+                                    <Grid item xs={12} sm={6} md={4} display={{xs:'none',md:'none',lg:'block'}} >
                                         <Typography sx={{ fontSize:14,fontWeight:500,mb:0.8}} >
                                             {"Delivered on Feb 13"}
                                         </Typography>
@@ -177,7 +168,7 @@ const MyOrder = ({}) => {
                                             <NavigateNextIcon  sx={{ position:'absolute',top:0,bottom:0,right:0,margin:'auto'}}/>
                                         </Box>
                                     </Grid>
-                                    <Grid item xs={12} sm={6} md={4} display={{xs:'none',xs:'none',lg:'block'}} >
+                                    <Grid item xs={12} sm={6} md={4} display={{xs:'none',md:'none',lg:'block'}} >
                                         <Typography sx={{ fontSize:14,fontWeight:500,mb:0.8}} >
                                             {"Delivered on Feb 13"}
                                         </Typography>
@@ -207,7 +198,7 @@ const MyOrder = ({}) => {
                                             <NavigateNextIcon  sx={{ position:'absolute',top:0,bottom:0,right:0,margin:'auto'}}/>
                                         </Box>
                                     </Grid>
-                                    <Grid item xs={12} sm={6} md={4} display={{xs:'none',xs:'none',lg:'block'}} >
+                                    <Grid item xs={12} sm={6} md={4} display={{xs:'none',md:'none',lg:'block'}} >
                                         <Typography sx={{ fontSize:14,fontWeight:500,mb:0.8}} >
                                             {"Delivered on Feb 13"}
                                         </Typography>

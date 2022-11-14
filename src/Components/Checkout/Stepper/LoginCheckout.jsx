@@ -17,10 +17,7 @@ import { grey } from '@mui/material/colors';
 const LoginCheckout = (props) => {
     const navigate = useNavigate();
     const search = useLocation().search;
-    const active = new URLSearchParams(search).get("active");
-     useEffect(() => {
-    if (active != "1") navigate(`/checkout?active=${active}`);
-    }, []);
+    
 
      // Dialog popup 
     const [dialog, setDialog] = React.useState(false);

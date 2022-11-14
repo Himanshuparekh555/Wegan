@@ -23,7 +23,7 @@ const top100Films = () => [
 ];
 
 
-const ProductFilters = ({}) => {
+const ProductFilters = () => {
     // Sort by
     const [sortby, setSortBy] = React.useState('');
     const handleChange = (event) => {

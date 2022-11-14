@@ -382,7 +382,7 @@ const Three = (props) => {
     </div>
   );
 };
-const Checkout = ({}) => {
+const Checkout = () => {
     
     const [stepWizard, setStepWizard] = useState(null);
     const [user, setUser] = useState({});

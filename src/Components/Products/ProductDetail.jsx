@@ -81,7 +81,7 @@ const StyledRating = styled(Rating)({
     color: '#CFE9CC',
   },
 });
-const ProductDetail = ({}) => {
+const ProductDetail = () => {
     const navigate = useNavigate();
     const navigateToCart = () => {
     // navigate to Add to Cart 

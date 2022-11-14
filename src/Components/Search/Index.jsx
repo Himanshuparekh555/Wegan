@@ -16,7 +16,7 @@ function sleep(delay = 0) {
     setTimeout(resolve, delay);
   });
 }
-const Search = ({}) => {
+const Search = () => {
      // Auto Search
     const [open, setOpen] = React.useState(false);
     const [options, setOptions] = React.useState([]);
@@ -58,7 +58,7 @@ const Search = ({}) => {
         <>
          <Box className='search_box' sx={{ display:"flex",alignItems:"center",borderRadius:3}} marginTop={{xs:3,md:3, lg:7}}>
             <Autocomplete
-                sx={{ width: 800}}
+                sx={{ width: 800,p:0}}
                 id="asynchronous-demo"                              
                 open={open}
                 freeSolo
@@ -74,6 +74,7 @@ const Search = ({}) => {
                 loading={loading}
                 renderInput={(params) => (
                     <TextField
+                    sx={{p:0}}
                     {...params}
                     placeholder="Search Here"
                     InputProps={{

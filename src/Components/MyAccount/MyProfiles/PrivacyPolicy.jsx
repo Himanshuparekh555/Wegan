@@ -1,19 +1,12 @@
-import React, { useState, } from "react";
-import { useNavigate } from "react-router-dom";
+import * as React from 'react';
 import "../index.scss";
 // Material Ints
 import {
-    Box,
     Typography,
-    IconButton,
-    Button,
-    Card,
-    CardContent,
-    Input,
 } from "@mui/material";
 
 
-const TermsConditions = ({}) => {
+const TermsConditions = () => {
       return (
           <>
             <Typography gutterBottom variant="h2" sx={{ fontSize:18,fontWeight:500,mb:3.5}}>

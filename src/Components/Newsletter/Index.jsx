@@ -12,8 +12,7 @@ import {
 } from "@mui/material";
 
 
-
-const Newsletter = ({}) => {
+function Newsletter() {
     return (
         <>
             <Container>

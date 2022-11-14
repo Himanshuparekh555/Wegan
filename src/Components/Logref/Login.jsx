@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 import GoVeganImg from "../../Images/go-vegan.png"
 import "./index.scss";
-import OTPInput, { ResendOTP } from "otp-input-react";
+import OTPInput from "otp-input-react";
 // Material Ints
 import {
     Grid,
     Box,
-    Container,
     Typography,
     TextField ,
     Button,
@@ -19,7 +18,7 @@ import {
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 
-const Login = ({}) => {
+function Login() {
 
     // OTP Input
     const [OTP, setOTP] = useState("");

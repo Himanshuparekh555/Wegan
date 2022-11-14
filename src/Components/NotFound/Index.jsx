@@ -12,7 +12,7 @@ import {
 import CartEmptyImage from '../../Images/svg/cart-empty.svg';
 
 
-const NotFound = ({}) => {
+const NotFound = () => {
     const navigate = useNavigate();
     const navigateToHome = () => {
     // navigate to Home page

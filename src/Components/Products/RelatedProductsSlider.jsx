@@ -57,8 +57,7 @@ const RelatedProductsData = [
         discount:'20% OFF'
     },
 ];
-
-const Relatedproductsslider = ({}) => {
+function Relatedproductsslider() {
     const swiperRef = useRef();
     return (
         <>

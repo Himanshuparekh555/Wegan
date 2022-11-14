@@ -44,7 +44,7 @@ const steps = [
         datetime:'Sun, 6th Nov',
     },
 ];
-const OrderDelivered = ({}) => {
+const OrderDelivered = () => {
       return (
           <>
             <Box className="myaccount-section" sx={{pt:3,pb:8}}>

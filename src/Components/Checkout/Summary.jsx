@@ -12,8 +12,7 @@ import {
 } from "@mui/material";
 import ClearIcon from '@mui/icons-material/Clear';
 
-
-const Summary = ({}) => {
+function Summary() {
     return (
         <>
             <Box sx={{border:'1px solid #F2F2F2',borderRadius:12,}} padding={{xs:2,md:3,lg:3.5}}>

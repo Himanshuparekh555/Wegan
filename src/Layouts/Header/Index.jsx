@@ -136,7 +136,7 @@ const Header = ({props}) => {
     const stickNavbar = () => {
         if (window !== undefined) {
         let windowHeight = window.scrollY;
-        windowHeight > 40 ? setActiveClass('active') : setActiveClass('');
+        windowHeight > 10 ? setActiveClass('sticky') : setActiveClass('');
         }
     };
     // Navigation toggleclass
@@ -157,14 +157,7 @@ const Header = ({props}) => {
     const handleClose = () => {
         setAnchorEl(null);
     };
-    const [menu, setMenu] = React.useState(null);
-    const openMenu = Boolean(menu);
-    const handleMenuClick = (event) => {
-        setMenu(event.currentTarget);
-    };
-    const handleMenuClose = () => {
-        setMenu(null);
-    };
+   
 
     // Search Dialog
     const [search, setSearch] = React.useState(false);
@@ -178,7 +171,6 @@ const Header = ({props}) => {
     };
 
     // Dialog popup 
-    const [dialog, setDialog] = React.useState(false);
     const [isOpen, setIsOpen] = useState(false);
     const handleOpen = () => {
         setIsOpen(!isOpen);

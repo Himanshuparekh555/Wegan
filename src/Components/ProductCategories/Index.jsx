@@ -120,7 +120,7 @@ const ImageBackdrop = styled('span')(({ theme }) => ({
 }));
 
 
-const ProductCategories = ({}) => {
+const ProductCategories = () => {
     const navigate = useNavigate();
     const navigateToAll = () => {
     // navigate to All Category page

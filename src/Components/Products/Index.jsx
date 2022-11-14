@@ -6,23 +6,19 @@ import {
     Grid,
     Box,
     Container,
-    Card,
-    CardActions,
-    CardContent,
-    CardMedia,
     Typography,
     Button,
-    ToggleButton,
 } from "@mui/material";
 
 import HomeProductGridView from "../Products/HomeProductGrid";
 
-const HomeProductGrid = ({}) => {
+const HomeProductGrid = () => {
     const navigate = useNavigate();
     const navigateToViewAll = () => {
     // navigate to View all page
          navigate('/allproducts');
      };
+
     return (
         <>
             <Box className='product_grid'>

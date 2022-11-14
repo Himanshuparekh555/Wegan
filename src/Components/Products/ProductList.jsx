@@ -20,10 +20,8 @@ import {
     CardContent,
     CardMedia,
     Checkbox,
-    Label,
     Button,
     Rating,
-    ToggleButton,
 } from "@mui/material";
 
 import ProductImage from '../../Images/product_image.png';
@@ -79,9 +77,7 @@ const StyledRating = styled(Rating)({
 });
 
 
-const ProductList = ({}) => {
-    // Wishlist
-    const [selected, setSelected] = React.useState(false);
+const ProductList = () => {
     // Rating
     const value = 3;
 

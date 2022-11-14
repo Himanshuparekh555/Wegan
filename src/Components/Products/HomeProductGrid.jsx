@@ -12,7 +12,6 @@ import {
     Checkbox,
     Typography,
     Button,
-    ToggleButton,
 } from "@mui/material";
 import Favorite from '@mui/icons-material/Favorite';
 import ProductImage from '../../Images/product_image.png';
@@ -64,9 +63,7 @@ const ProductCardData = [
     }, 
 ];
 
-
-const HomeProductGridView = ({}) => {
-    const [selected, setSelected] = React.useState(false);
+function HomeProductGridView() {
     return (
         <>
         <Grid container spacing={3}>

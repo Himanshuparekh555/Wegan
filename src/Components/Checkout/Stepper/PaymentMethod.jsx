@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, {  useEffect } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import "../index.scss";
 import {ReactComponent as SBIIcon} from '../../../Images/svg/sbi_icon.svg';

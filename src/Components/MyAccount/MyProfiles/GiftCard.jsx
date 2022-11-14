@@ -24,7 +24,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
 });
 
-const GiftCard = ({}) => {
+const GiftCard = () => {
     const [inputFields, setInputFields] = useState([{
       
     }]);
@@ -39,12 +39,12 @@ const GiftCard = ({}) => {
         rows.splice(index, 1);
         setInputFields(rows);
    }
-    const handleChange = (index, evnt)=>{    
-    const { name, value } = evnt.target;
-    const list = [...inputFields];
-    list[index][name] = value;
-    setInputFields(list); 
-    }
+    // const handleChange = (index, evnt)=>{    
+    // const { name, value } = evnt.target;
+    // const list = [...inputFields];
+    // list[index][name] = value;
+    // setInputFields(list); 
+    // }
     const [open, setOpen] = React.useState(false);
 
     const handleClickOpen = () => {
@@ -69,7 +69,7 @@ const GiftCard = ({}) => {
                 <Grid container spacing={3} sx={{mb:4,}}>
                     <Grid item xs={12} sm={12} md={8}>
                         <Typography gutterBottom variant="h5" sx={{ fontSize:16,fontWeight:500,mb:0,display:'flex',alignItems:'center'}}>
-                            <img src={GiftIcon}/>&nbsp;&nbsp;{"0 ACTIVE GIFT CARD"}
+                            <img alt="" src={GiftIcon}/>&nbsp;&nbsp;{"0 ACTIVE GIFT CARD"}
                         </Typography>
                     </Grid>
                     <Grid item xs={12} sm={12} md={4}>

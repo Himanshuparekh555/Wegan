@@ -17,7 +17,7 @@ import { red,grey } from '@mui/material/colors';
 import DeleteIcon from '@mui/icons-material/Delete';
 import PopupState, { bindToggle, bindPopper } from 'material-ui-popup-state';
 
-const MyWishlist = ({}) => {
+const MyWishlist = () => {
       return (
           <>
             <Typography gutterBottom variant="h2" sx={{ fontSize:18,fontWeight:500,mb:3.5}}>

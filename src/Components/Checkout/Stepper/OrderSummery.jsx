@@ -6,17 +6,9 @@ import "../index.scss";
 import {
     Grid,
     Typography,
-    FormControl,
-    FormLabel,
-    FormControlLabel,
-    RadioGroup,
     Box,
-    Link,
-    Radio,
     Button,
     TextField,
-    TextareaAutosize,
-    styled,
 } from "@mui/material";
 import ProductImage from '../../../Images/product_image.png';
 import KeyboardArrowLeftIcon from '@mui/icons-material/KeyboardArrowLeft';
@@ -104,8 +96,7 @@ const OrderSummery = (props) => {
                       </Button>
                   </Grid>
               </Grid>
-        </Box> 
-        
+        </Box>    
           
         </> 
     )

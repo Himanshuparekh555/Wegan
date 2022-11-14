@@ -1,4 +1,4 @@
-import React, { useState  } from "react";
+import React, { useState,useEffect} from "react";
 import {NavLink} from "react-router-dom";
 import "./index.scss";
 
@@ -24,11 +24,12 @@ import {
     TextField,
     Button,
 } from "@mui/material";
-
-const Footer = ({}) => {
+import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
+import { grey } from '@mui/material/colors';
+const Footer = () => {
      const [isOpened, setIsOpened] = useState(false);
      const [isActive, setActive] = useState(false);
-
+     const [showTopBtn, setShowTopBtn] = useState(false);
     function toggle() {
         setIsOpened(wasOpened => !wasOpened);
         setActive(!isActive);
@@ -45,6 +46,23 @@ const Footer = ({}) => {
     const handletab=(e)=>{
             setShowTab(e);
     }
+
+    // Scroll To Top 
+    useEffect(() => {
+        window.addEventListener("scroll", () => {
+            if (window.scrollY > 300) {
+                setShowTopBtn(true);
+            } else {
+                setShowTopBtn(false);
+            }
+        });
+    }, []);
+    const goToTop = () => {
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth",
+        });
+    };
 
     return (
         <>
@@ -113,7 +131,7 @@ const Footer = ({}) => {
                                         </Typography> 
                                     </Grid>
                                     <Grid item xs={12} sm={12} md={8}>
-                                     <iframe className="w-100" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d235526.90924555392!2d75.72376116522602!3d22.724228430816172!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3962fcad1b410ddb%3A0x96ec4da356240f4!2sIndore%2C%20Madhya%20Pradesh!5e0!3m2!1sen!2sin!4v1667278555852!5m2!1sen!2sin" height="350" frameborder="0" style={{border:0}} allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>
+                                     <iframe className="w-100" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d235526.90924555392!2d75.72376116522602!3d22.724228430816172!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3962fcad1b410ddb%3A0x96ec4da356240f4!2sIndore%2C%20Madhya%20Pradesh!5e0!3m2!1sen!2sin!4v1667278555852!5m2!1sen!2sin" height="350" frameborder="0" style={{border:0}} allowfullscreen="" aria-hidden="false" tabindex="0" title="Google Map"></iframe>
                                     </Grid>
                             </Grid>
                         </Box>
@@ -172,7 +190,11 @@ const Footer = ({}) => {
                     </Container>
                 </Typography> 
             </Box>
+             {showTopBtn && (
+                <Button className="btn-theme" variant="contained" onClick={goToTop} sx={{position:'fixed',bottom:25,right:20,borderRadius:20,backgroundColor:'#CFE9CC',zIndex:999,minWidth:'50px',height:'50px',p:0}}><KeyboardArrowUpIcon sx={{ color: grey[700],fontSize: 40 }} /></Button>
+            )}
         </footer>
+       
         </>
     )
 };

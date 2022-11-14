@@ -6,7 +6,7 @@ import {
 } from "@mui/material";
 
 
-const TermsConditions = ({}) => {
+const TermsConditions = () => {
       return (
           <>
             <Typography gutterBottom variant="h2" sx={{ fontSize:18,fontWeight:500,mb:3.5}}>

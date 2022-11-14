@@ -141,7 +141,8 @@ const ImageBackdrop = styled('span')(({ theme }) => ({
   opacity: 0.4,
   transition: theme.transitions.create('opacity'),
 }));
-const BlogDetail = ({}) => {
+
+function BlogDetail() {
 
     return (
         <>
@@ -150,7 +151,7 @@ const BlogDetail = ({}) => {
                      <Grid container sx={{ display:'flex',justifyContent:'center'}}>
                             <Grid item xs={12} sm={12} md={6}>    
                                 <img className="w-100" src={ProductImage} alt=''/>     
-                                <Typography className='heading3' variant="h3" sx={{ mt:5,mb:5,textAlign:'center',}} lineHeight={{xs:'35px',xs:'30px',lg:'50px'}}>
+                                <Typography className='heading3' variant="h3" sx={{ mt:5,mb:5,textAlign:'center',}} lineHeight={{xs:'30px',md:'30px',lg:'50px'}}>
                                     {"Vegan Malabar Curry with Veggies and Beans"}
                                 </Typography>                                                   
                             </Grid>  

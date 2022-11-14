@@ -1,5 +1,5 @@
 import React, {useState} from "react";
-import {NavLink,useNavigate} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 import "./index.scss";
 
 import {ReactComponent as InstaIcon} from '../../Images/instagram_icon.svg';
@@ -16,10 +16,8 @@ import {
     Link,
     CardContent,
 } from "@mui/material";
-import Favorite from '@mui/icons-material/Favorite';
 import ProductImage from '../../Images/blog_img.png';
 import FavoriteIcon from '@mui/icons-material/Favorite';
-const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 // Product Data
 const ProductCardData = [
     {   img:ProductImage, 
@@ -65,7 +63,7 @@ const ProductCardData = [
     }, 
 ];
 
-const Blog = ({}) => {
+const Blog = () => {
     // Like Hooks
     const [likeCount, setLikeCount] = useState(50);
     // Active Hooks

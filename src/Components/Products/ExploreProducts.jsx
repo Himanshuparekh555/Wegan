@@ -15,7 +15,6 @@ import {
     Checkbox,
     Typography,
     Button,
-    ToggleButton,
 } from "@mui/material";
 
 import ProductImage from '../../Images/product_image.png';
@@ -70,8 +69,7 @@ const ProductCardData = [
 ];
 
 
-const HomeProductGridView = ({}) => {
-    const [selected, setSelected] = React.useState(false);
+const HomeProductGridView = () => {
     return (
         <>
         <Box className='product_grid'>

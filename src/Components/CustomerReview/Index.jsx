@@ -32,8 +32,7 @@ const CustomerReviewData = [
     }, 
 ];
 
-
-const CustomerReview = ({}) => {
+function CustomerReview() {
     return (
         <>
             <Container>

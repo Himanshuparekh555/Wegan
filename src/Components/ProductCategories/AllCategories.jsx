@@ -118,7 +118,7 @@ const ImageBackdrop = styled('span')(({ theme }) => ({
 }));
 
 
-const AllProductCategories = ({}) => {
+const AllProductCategories = () => {
     return (
         <>
             <Box className='categories' sx={{ pt:10,pb:10}}>

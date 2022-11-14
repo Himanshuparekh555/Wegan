@@ -63,7 +63,7 @@ function BpRadio(props) {
     />
   );
 }
-const ManageAddresses = ({}) => {
+const ManageAddresses = () => {
       const [isOpened, setIsOpened] = useState(false);
       const [visible, setVisible] = useState(true);
       function toggle() {

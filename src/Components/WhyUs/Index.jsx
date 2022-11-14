@@ -32,7 +32,7 @@ const WhyusContent = [
 ];
 
 
-const WhyUs = ({}) => {
+const WhyUs = () => {
     return (
         <>
             <Box className='whyus_section' padding={{xs:'80px 0',md:'80px 0',lg:'100px 0'}}>
