@@ -136,7 +136,7 @@ const Header = ({props}) => {
     const stickNavbar = () => {
         if (window !== undefined) {
         let windowHeight = window.scrollY;
-        windowHeight > 10 ? setActiveClass('sticky') : setActiveClass('');
+        windowHeight > 18 ? setActiveClass('sticky') : setActiveClass('');
         }
     };
     // Navigation toggleclass
@@ -177,20 +177,33 @@ const Header = ({props}) => {
     };
 
     const navigate = useNavigate();
-     const navigateToProductList = () => {
-    // navigate to My Account
+     const navigateToHome = () => {
+    // navigate to Home
+         navigate('/');
+         setActive(!isActive); 
+    };
+    const navigateToProductList = () => {
+    // navigate to Product List
          navigate('/product');
+         setActive(!isActive); 
+    };
+     const navigateToBlog = () => {
+    // navigate to Cart
+         navigate('/blog');
+         setActive(!isActive); 
     };
     const navigateToMyOrder = () => {
     // navigate to My Order
          navigate('/my-order');
+         setAnchorEl(null);
     };
     const navigateToMyAccount = () => {
     // navigate to My Account
          navigate('/my-account');
+         setAnchorEl(null);
     };
      const navigateToCart = () => {
-    // navigate to My Account
+    // navigate to Cart
          navigate('/shopping-cart');
     };
     return (
@@ -208,7 +221,7 @@ const Header = ({props}) => {
                             </Grid>
                             <Grid item xs={6} sm={4} md={4}>
                                 <Box className='auction_btn' sx={{ display:"flex",alignItems:"center",justifyContent:"end"}}>
-                                    <MenuItem  disableRipple  onClick={handleClickOpenSearch}>
+                                    <MenuItem disableRipple onClick={handleClickOpenSearch}>
                                         <SearchIcon/>
                                     </MenuItem>
                                     <MenuItem disableRipple>
@@ -235,11 +248,9 @@ const Header = ({props}) => {
                                         sx={{p:0,minWidth:0 }}
                                     >
                                         <ProfileIcon/>
-                                        <Box
-                                        sx={{ display: { xs: "none", md: "none", lg: "block" },pl:1 }}
-                                        >
+                                        <Typography variant="caption" gutterBottom sx={{ display: { xs: "none", md: "none", lg: "block" },pl:1,mb:0,textTransform:'capitalize',fontWeight:'500',fontSize:'15px' }}>
                                             {"As Guest"}
-                                        </Box>
+                                        </Typography>
                                     </Button>
                                      <StyledMenu
                                         id="profile-dropdown"
@@ -300,15 +311,15 @@ const Header = ({props}) => {
                 <Box className={`header ${activeClass}`}>
                     <Container>                        
                         <Grid container sx={{ display:"flex",alignItems:"center",justifyContent:"space-between"}}>
-                            <Grid item xs={3} sm={3} md={3}>
-                                <NavLink to="/" className='logo' sx={{ display:"block",}}><LogoIcon/></NavLink>
+                            <Grid item xs={3} sm={3} md={2}>
+                                <NavLink to="/" className='logo'><LogoIcon/></NavLink>
                             </Grid>
-                            <Grid item xs={9} sm={9} md={9} sx={{ display:"flex",alignItems:"center",justifyContent:"end"}}>
+                            <Grid item xs={9} sm={9} md={10} sx={{ display:"flex",alignItems:"center",justifyContent:"end"}}>
                                 <Box sx={{ display:"flex",alignItems:"center",}}>
                                     <Box className={isActive ? "navigation" : "navigation active"}>
                                         <Button className="closemenu" onClick={MenuToggleClass} variant="text" sx={{ borderRadius:10,minWidth:50,height:50}}><CloseIcon sx={{ color: grey[700]}} style={{marginRight:0}}/></Button>
                                         <MenuList sx={{ display:"flex",alignItems:"center",flexWrap:'wrap'}}>
-                                            <MenuItem disableRipple><NavLink to="/"><HomeIcon/> {"Home"}</NavLink></MenuItem>
+                                            <MenuItem disableRipple onClick={navigateToHome}><HomeIcon/> {"Home"}</MenuItem>
                                             <MenuItem onClick={SubMenuToggleClass} disableRipple>
                                                 <Link                                               
                                                     underline="none"
@@ -319,21 +330,21 @@ const Header = ({props}) => {
                                                 {isOpened && (
                                                     <Box className="submenu" sx={{ borderRadius:7.5}}>
                                                         <MenuList sx={{ pt:0,pb:0}}>
-                                                            <MenuItem onClick={navigateToProductList}><NavLink to="/product"><BakeryIcon/> {"Bakery Items"}</NavLink></MenuItem>
-                                                            <MenuItem onClick={navigateToProductList}><NavLink to="/product"><DairyIcon/>{"Dairy Items"}</NavLink></MenuItem>
-                                                            <MenuItem onClick={navigateToProductList}><NavLink to="/product"><DryfruitsIcon/>{"Dry Fruits"}</NavLink></MenuItem>
-                                                            <MenuItem onClick={navigateToProductList}><NavLink to="/product"><FlourmillIcon/>{"Flour Mill"}</NavLink></MenuItem>
-                                                            <MenuItem onClick={navigateToProductList}><NavLink to="/product"><OrganicveggiesIcon/>{"Organic Veggies"}</NavLink></MenuItem>
-                                                            <MenuItem onClick={navigateToProductList}><NavLink to="/product"><PerfumeIcon/>{"Perfumes"}</NavLink></MenuItem>
-                                                            <MenuItem onClick={navigateToProductList}><NavLink to="/product"><CometicsIcon/>{"Cosemtics"}</NavLink></MenuItem>
-                                                            <MenuItem onClick={navigateToProductList}><NavLink to="/product"><SupplimentsIcon/>{"Supplements"}</NavLink></MenuItem>
-                                                            <MenuItem onClick={navigateToProductList}><NavLink to="/product"><OrganicjuiceIcon/>{"Organic Juices"}</NavLink></MenuItem>
+                                                            <MenuItem onClick={navigateToProductList}><BakeryIcon/> {"Bakery Items"}</MenuItem>
+                                                            <MenuItem onClick={navigateToProductList}><DairyIcon/>{"Dairy Items"}</MenuItem>
+                                                            <MenuItem onClick={navigateToProductList}><DryfruitsIcon/>{"Dry Fruits"}</MenuItem>
+                                                            <MenuItem onClick={navigateToProductList}><FlourmillIcon/>{"Flour Mill"}</MenuItem>
+                                                            <MenuItem onClick={navigateToProductList}><OrganicveggiesIcon/>{"Organic Veggies"}</MenuItem>
+                                                            <MenuItem onClick={navigateToProductList}><PerfumeIcon/>{"Perfumes"}</MenuItem>
+                                                            <MenuItem onClick={navigateToProductList}><CometicsIcon/>{"Cosemtics"}</MenuItem>
+                                                            <MenuItem onClick={navigateToProductList}><SupplimentsIcon/>{"Supplements"}</MenuItem>
+                                                            <MenuItem onClick={navigateToProductList}><OrganicjuiceIcon/>{"Organic Juices"}</MenuItem>
                                                         </MenuList>
                                                     </Box>
                                                 )}
                                             </MenuItem>
-                                            <MenuItem disableRipple><NavLink to="/blog"><BlogIcon/> {"Blog"}</NavLink></MenuItem>
-                                            <MenuItem disableRipple><NavLink><ContactIcon/> {"Contact"}</NavLink></MenuItem>
+                                            <MenuItem disableRipple onClick={navigateToBlog}><NavLink ><BlogIcon/> {"Blog"}</NavLink></MenuItem>
+                                            <MenuItem disableRipple><Link href="#footer"><ContactIcon/> {"Contact"}</Link></MenuItem>
                                         </MenuList>
                                     </Box>
                                     <NavLink className="seller" href="#">{"Become a Seller"}</NavLink>
@@ -345,8 +356,7 @@ const Header = ({props}) => {
                         </Grid>
                     </Container>    
                 </Box>
-            </header>
-            
+            </header>            
             <Dialog
                 fullScreen
                 open={search}

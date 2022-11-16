@@ -5,7 +5,7 @@
 .checkout_section {
     & .indicators {
         position  : relative;
-        margin-top: 100px;
+        margin-top: 50px;
 
         @include media-mobile-md-max {
             margin-top: 30px;

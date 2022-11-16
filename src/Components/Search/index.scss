@@ -1,0 +1,9 @@
+@import "../../variables.scss";
+@import "../../mixy-sass/mixy";
+@import "../../mixy-sass/setting";
+
+.search_box {
+    & input {
+        padding: 5px 10px !important;
+    }
+}

@@ -1,6 +1,6 @@
-import * as React from 'react';
+import React, { useEffect,useState  } from "react";
 import "./index.scss";
-
+import FormEmailComponent from "./NewsletterEmail";
 // Material Ints
 import {
     Grid,
@@ -10,9 +10,19 @@ import {
     TextField,
     Button,
 } from "@mui/material";
-
-
+import { red } from '@mui/material/colors';
+const emailState = {
+    email: '',
+    error: ''
+}
 function Newsletter() {
+    const [emailstatus, setEmailstatus] = useState({});
+    function onSubmit(res) {
+        setEmailstatus(res);
+    }
+    useEffect(() => {
+        console.log("From App.js ", emailstatus);
+    }, [emailstatus]);
     return (
         <>
             <Container>
@@ -22,12 +32,8 @@ function Newsletter() {
                             <Typography className='heading3' variant="h3" sx={{ mb:10,textAlign:'center',lineHeight:'32px'}}>
                                 {"Sign Up to our Newsletter"}
                             </Typography> 
-                            <Box backgroundColor={{xs:'#FAFAFA',md:'#FAFAFA',lg:'#ffffff'}}  sx={{ display:"flex",alignItems:"center",borderRadius:10,height:60}}>
-                                <TextField fullWidth sx={{pl:2}}  id="newsletter" placeholder='Your email address' variant="outlined" />
-                                <Box width={{xs:'200px',md:'200px',lg:'200px'}}>
-                                <Button className="btn-theme w-100" sx={{ height:60,borderRadius:10,}}>{"Subscribe"}</Button>
-                                </Box>
-                            </Box>
+                            {/* {JSON.stringify(emailstatus)} */}
+                            <FormEmailComponent onEmailSubmit={onSubmit} />
                         </Grid>
                     </Grid>             
                 </Box>

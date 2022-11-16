@@ -29,6 +29,7 @@ import {
     Button,
     Rating,
     ToggleButton,
+    Checkbox,
 } from "@mui/material";
 
 
@@ -36,7 +37,7 @@ import ProductImage from '../../Images/product_image.png';
 import NavigateNextIcon from '@mui/icons-material/NavigateNext';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import StarIcon from '@mui/icons-material/Star';
-
+const label = { inputProps: { 'aria-label': 'Checkbox demo' } };
 
 const productimages = [
     {
@@ -158,18 +159,9 @@ const ProductDetail = () => {
                                         <Button onClick={navigateToCart} className='btn-theme w-100' sx={{ borderRadius:10,pt:1.5,pb:1.5}}>{'Buy Now'}</Button>
                                     </Grid>
                                     <Grid item xs={12} sm={2} md={2}>
-                                        <ToggleButton
-                                            className='favorite'
-                                            sx={{border:'1px solid #E2E2E2',backgroundColor:'none',p:1.9,borderRadius:10,}} 
-                                            size='small'
-                                            value="right" 
-                                            aria-label="right aligned"
-                                            selected={selected}
-                                            onChange={() => {
-                                                setSelected(!selected);
-                                            }}>
-                                            <FavoriteIcon sx={{ fontSize: 20 }} color="disabled"/>
-                                        </ToggleButton>
+                                        <Box className='favorite'>
+                                            <Checkbox sx={{border:'1px solid #E2E2E2',backgroundColor:'none',p:2,borderRadius:10,}} {...label} icon={<FavoriteIcon sx={{ fontSize: 20 }}/>} checkedIcon={<FavoriteIcon sx={{ fontSize: 20 }}/>} />  
+                                        </Box> 
                                     </Grid>
                                 </Grid>
                             </Grid>

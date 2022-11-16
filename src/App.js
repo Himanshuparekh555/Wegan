@@ -1,4 +1,4 @@
-import { Routes, Route  } from 'react-router-dom';
+import { Routes, Route, useHistory  } from 'react-router-dom';
 import './App.scss';
 
 import Header from "./Layouts/Header/Index"
@@ -10,6 +10,7 @@ import ProductList from "./Components/Products/ProductList"
 import ProductDetail from "./Components/Products/ProductDetail"
 import ShoppingCart from "./Components/ShoppingCart/Index"
 import Checkout from "./Components/Checkout/Index"
+import CheckoutStepper from "./Components/Checkout/Stepper"
 import ShoppingCartEmpty from "./Components/ShoppingCart/CartEmpty"
 import OrderedSuccessfully from "./Components/Checkout/OrderedSuccessfully"
 import MyAccount from "./Components/MyAccount/Index"
@@ -32,6 +33,7 @@ function App() {
           <Route path='/shopping-cart' element={<ShoppingCart />} />
           <Route path='/cart-empty' element={<ShoppingCartEmpty />} />
           <Route path='/checkout' element={<Checkout />} />
+          <Route path='/checkout-stepper' element={<CheckoutStepper />} />
           <Route path='/order-success' element={<OrderedSuccessfully />} />
           <Route path='/my-account' element={<MyAccount />} />
           <Route path='/my-order' element={<MyOrder />} />

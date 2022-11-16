@@ -44,7 +44,7 @@ const Footer = () => {
     // Footer collapse
     const [showtab, setShowTab] = useState(1);
     const handletab=(e)=>{
-            setShowTab(e);
+        setShowTab(e);
     }
 
     // Scroll To Top 
@@ -66,7 +66,7 @@ const Footer = () => {
 
     return (
         <>
-        <footer>
+        <footer id="footer">
             <Box className="links" paddingTop={{xs:'30px',md:'50px',lg:'80px'}} sx={{ pb:3}}>
                 <Container>
                     <MenuList>

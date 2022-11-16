@@ -24,7 +24,10 @@ const PaymentMethod = (props) => {
      useEffect(() => {
     if (active != "4") navigate(`/checkout?active=${active}`);
     }, []);
-    
+     const navigateToSuccess = () => {
+    // navigate to Order success
+         navigate('/order-success');
+    };
     return (
         <>
         <Grid container spacing={{ xs: 5, md: 12 }} sx={{mb:6,}}>
@@ -50,7 +53,7 @@ const PaymentMethod = (props) => {
                                 <TextField fullWidth placeholder="CVV" variant="outlined" sx={{mb:3,}} />  
                             </Grid>                    
                         </Grid>
-                        <Button href="/order-success" className='btn-theme' sx={{pt:1.5,pb:1.5,pl:4,pr:4,borderRadius:12}}>{"Pay $224"}</Button>   
+                        <Button onClick={navigateToSuccess} className='btn-theme' sx={{pt:1.5,pb:1.5,pl:4,pr:4,borderRadius:12}}>{"Pay $224"}</Button>   
                     </AccordionDetails>
                     </Accordion> 
                     <Accordion className="payment-method" sx={{ borderRadius:0,boxShadow:0,}}>
@@ -70,7 +73,7 @@ const PaymentMethod = (props) => {
                                     <TextField fullWidth placeholder="CVV" variant="outlined" sx={{mb:3,}} />  
                                 </Grid>                    
                             </Grid>
-                            <Button className='btn-theme' sx={{pt:1.5,pb:1.5,pl:4,pr:4,borderRadius:12}}>{"Pay $224"}</Button>   
+                            <Button onClick={navigateToSuccess} className='btn-theme' sx={{pt:1.5,pb:1.5,pl:4,pr:4,borderRadius:12}}>{"Pay $224"}</Button>   
                         </AccordionDetails>
                     </Accordion> 
                     <Accordion className="payment-method" sx={{ borderRadius:0,boxShadow:0,}}>

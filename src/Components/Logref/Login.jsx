@@ -1,6 +1,9 @@
 import React, { useState } from "react";
-import GoVeganImg from "../../Images/go-vegan.png"
+import { Form, FormikProvider, useFormik } from "formik";
+import * as Yup from "yup";
 import "./index.scss";
+
+import GoVeganImg from "../../Images/go-vegan.png"
 import OTPInput from "otp-input-react";
 // Material Ints
 import {
@@ -15,29 +18,28 @@ import {
     InputAdornment,
     FormControl,
 } from "@mui/material";
+import { LoadingButton } from "@mui/lab";
 import Visibility from '@mui/icons-material/Visibility';
 import VisibilityOff from '@mui/icons-material/VisibilityOff';
 
-function Login() {
-
+function Login({handleCloseDialog}) {
+const [showPassword, setShowPassword] = useState(false);
     // OTP Input
     const [OTP, setOTP] = useState("");
-
-
-   const [values, setValues] = React.useState({
-    showPassword: false,
-  });
-
-  const handleChange = (prop) => (event) => {
-    setValues({ ...values, [prop]: event.target.value });
-  };
-
-  const handleClickShowPassword = () => {
-    setValues({
-      ...values,
-      showPassword: !values.showPassword,
+    const [values, setValues] = React.useState({
+        showPassword: false,
     });
-  };
+
+    const handleChange = (prop) => (event) => {
+        setValues({ ...values, [prop]: event.target.value });
+    };
+
+    const handleClickShowPassword = () => {
+        setValues({
+        ...values,
+        showPassword: !values.showPassword,
+        });
+    };
 
   const handleMouseDownPassword = (event) => {
     event.preventDefault();
@@ -48,7 +50,32 @@ function Login() {
         setShowPanel(e);
   }
 
+  // Form Validation
+  const LoginSchema = Yup.object().shape({
+    email: Yup.string()
+      .email("Provide a valid email address")
+      .required("Email is required"),
+    password: Yup.string().required("Password is required"),
+  });
 
+  const formik = useFormik({
+    initialValues: {
+      email: "",
+      password: "",
+    },
+    validationSchema: LoginSchema,
+    onSubmit: () => {
+      console.log("submitting...");
+      
+      setTimeout(() => {
+        console.log("submited!!");
+        handleCloseDialog(false);
+      }, 2000);
+    },
+  });
+
+    const { errors, touched, isSubmitting, handleSubmit, getFieldProps } =
+    formik;
 
     return (
         <>
@@ -73,39 +100,61 @@ function Login() {
                         <Box className="field" padding={{xs:2,md:2,lg:0,}} sx={{ display:"flex",alignItems:"center"}}>
                             <Grid container sx={{ display:"flex",alignItems:"center",justifyContent:"center"}}>
                                     <Grid item xs={12} sm={12} md={10}>
-                                        <Box sx={{ mb:3}}>
-                                            <TextField fullWidth  id="outlined-basic" placeholder="Enter email or mobile number" variant="outlined" />
+                                        <FormikProvider value={formik}>
+                                            <Form autoComplete="off" noValidate onSubmit={handleSubmit}>
+                                                 <Box sx={{ mb:3}}>
+                                            <TextField 
+                                                fullWidth  
+                                                id="outlined-basic"
+                                                placeholder="Enter email or mobile number"
+                                                variant="outlined"
+                                                {...getFieldProps("email")}
+                                                error={Boolean(touched.email && errors.email)}
+                                                helperText={touched.email && errors.email}
+                                              />
                                         </Box>
-                                        <Box sx={{ mb:3,position:"relative"}}>
+                                        <Box sx={{ mb:2,position:"relative"}}>
                                         <FormControl fullWidth>
-                                            <OutlinedInput
-                                                    placeholder='Password'
-                                                    id="outlined-adornment-password"
-                                                    type={values.showPassword ? 'text' : 'password'}
-                                                    value={values.password}
-                                                    onChange={handleChange('password')}
-                                                    endAdornment={
+                                            <TextField
+                                                fullWidth
+                                                autoComplete="current-password"
+                                                type={showPassword ? "text" : "password"}
+                                                placeholder="Password"
+                                                {...getFieldProps("password")}
+                                                error={Boolean(touched.password && errors.password)}
+                                                helperText={touched.password && errors.password}
+                                                InputProps={{
+                                                    endAdornment: (
                                                     <InputAdornment position="end">
                                                         <IconButton
-                                                        aria-label="toggle password visibility"
-                                                        onClick={handleClickShowPassword}
-                                                        onMouseDown={handleMouseDownPassword}
-                                                        edge="end"
+                                                        onClick={() => setShowPassword((prev) => !prev)}
                                                         >
-                                                        {values.showPassword ? <VisibilityOff /> :          <Visibility color="disabled" />}
+                                                        {showPassword ? (
+                                                            <VisibilityOff />
+                                                        ) : (
+                                                            <Visibility />
+                                                        )}
                                                         </IconButton>
                                                     </InputAdornment>
-                                                    }
-                                                />
+                                                    ),
+                                                }}
+                                            />                                            
                                             </FormControl>
-                                            <Link onClick={()=> handlepanel(3)} underline="none" sx={{position:"absolute",color:'#A4D59E',right:45,top:15,cursor:'pointer',fontSize:'14px'}}>{"Forgot?"}</Link>
+                                            <Link onClick={()=> handlepanel(3)} underline="none" sx={{position:"absolute",color:'#A4D59E',right:65,top:15,cursor:'pointer',fontSize:'14px'}}>{"Forgot?"}</Link>
                                         </Box>
-                                        <Typography variant="body1" gutterBottom sx={{ fontSize:18,fontWeight:500,mb:5}}>
+                                        <Typography variant="body1" gutterBottom sx={{ fontSize:18,fontWeight:500,mb:3}}>
                                             By continuing, you agree to Wegan’s <Link  underline="none" color="inherit" href="#" sx={{ fontSize:13}}>Terms of Use</Link> and <Link underline="none" color="inherit" href="#" sx={{ fontSize:13}}>Privacy Policy.</Link>
                                         </Typography>
                                         <Grid container sx={{ display:"flex",alignItems:"center",justifyContent:"center"}}>
                                             <Grid item xs={8} sm={8} md={8}>
-                                                <Button sx={{ borderRadius:50,p:1.5}} className="btn-theme w-100" disableElevation variant="contained">{"Login"}</Button>
+                                                <LoadingButton
+                                                sx={{ borderRadius:50,p:1.5,height:'52px'}} className="btn-theme w-100"
+                                                fullWidth
+                                                type="submit"
+                                                loading={isSubmitting}
+                                                >
+                                                {isSubmitting ? "" : "Login"}
+                                                </LoadingButton>
                                                 <Typography variant="body1" gutterBottom sx={{ fontSize:18,fontWeight:500,mt:3,mb:2,textAlign:"center"}}>
                                                     {"OR"}
                                                 </Typography>
@@ -114,10 +163,13 @@ function Login() {
                                                     <Typography variant="caption"  sx={{ fontSize:'14px',fontWeight:400,mb:3}}>
                                                         {"Existing User?"} 
                                                     </Typography>
-                                                    <Link underline="none" color="inherit" href="#" sx={{ p:0,fontSize:16,fontWeight:600,ml:0.5}} onClick={()=> handlepanel(2)}>{"Signup"}</Link>
+                                                    <Link underline="none" color="inherit" sx={{ p:0,fontSize:16,fontWeight:600,ml:0.5,cursor:'pointer'}} onClick={()=> handlepanel(2)}>{"Signup"}</Link>
                                                 </Box>
                                             </Grid>
-                                        </Grid>                                        
+                                        </Grid> 
+                                            </Form>
+                                        </FormikProvider>
+                                                                              
                                     </Grid>
                             </Grid>
                         </Box>
@@ -173,7 +225,7 @@ function Login() {
                                                     <Typography variant="caption"  sx={{ fontSize:'14px',fontWeight:400,mb:3}}>
                                                         {"Existing User?"} 
                                                     </Typography>
-                                                    <Link underline="none" color="inherit" href="#" sx={{ p:0,fontWeight:600,ml:0.5}} onClick={()=> handlepanel(1)}>{"Log in"}</Link>
+                                                    <Link underline="none" color="inherit" sx={{ p:0,fontWeight:600,ml:0.5,cursor:'pointer'}} onClick={()=> handlepanel(1)}>{"Log in"}</Link>
                                                 </Box>
                                             </Grid>
                                         </Grid>                                        
