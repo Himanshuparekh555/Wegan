@@ -19,11 +19,14 @@ import OrderDelivered from "./Components/MyAccount/MyProfiles/OrderDelivered"
 import Blog from "./Components/Blog/Index"
 import BlogDetail from "./Components/Blog/BlogDetail"
 import NotFound from "./Components/NotFound/Index"
+
+import { AuthProvider } from "./contextStore/useAuth";
 function App() {
   return (
     <>    
     
       <Header />
+      <AuthProvider>
       <Routes>
           <Route path='/' exact element={<HomePage />} />
           <Route path='/allproducts' element={<ExploreProducts />} />
@@ -42,6 +45,7 @@ function App() {
           <Route path='/blog-detail' element={<BlogDetail />} />
           <Route path="*" element={<NotFound />} />
       </Routes>
+      </AuthProvider>
        <Footer /> 
     </>
   );
