@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import axios from "axios";
 import { Form, FormikProvider, useFormik } from "formik";
 import * as Yup from "yup";
 import GoVeganImg from "../../Images/go-vegan.png";
@@ -7,16 +6,9 @@ import {
   Grid,
   Box,
   Typography,
-  styled,
   IconButton,
-  Dialog,
-  DialogTitle,
-  DialogContent,
-  Slide,
   TextField,
-  Button,
   Link,
-  OutlinedInput,
   InputAdornment,
   FormControl,
 } from "@mui/material";
@@ -27,24 +19,8 @@ import VisibilityOff from "@mui/icons-material/VisibilityOff";
 function Signup(props) {
   // Password hide / show
   const [showPassword, setShowPassword] = useState(false);
-  const [values, setValues] = React.useState({
-    showPassword: false,
-  });
-  const handleChange = (prop) => (event) => {
-    setValues({ ...values, [prop]: event.target.value });
-  };
-
-  const handleClickShowPassword = () => {
-    setValues({
-      ...values,
-      showPassword: !values.showPassword,
-    });
-  };
-
-  const handleMouseDownPassword = (event) => {
-    event.preventDefault();
-  };
-
+  // Confirm Password hide / show
+  const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   // Formik Validation
   const SignupSchema = Yup.object().shape({
     username: Yup.string()
@@ -55,12 +31,16 @@ function Signup(props) {
       .email("Provide a valid email address")
       .required("Email is required"),
     password: Yup.string().required("Password is required"),
+    confirmPassword: Yup.string()
+      .required("Enter the Confirm password")
+      .oneOf([Yup.ref("password"), null], "Passwords didn't match"),
   });
   const formik = useFormik({
     initialValues: {
       username: "",
       email: "",
       password: "",
+      confirmPassword: "",
       phone: "",
     },
     validationSchema: SignupSchema,
@@ -137,7 +117,7 @@ function Signup(props) {
               justifyContent: "center",
             }}
           >
-            <Grid item xs={12} md={12} lg={8}>
+            <Grid item xs={12} md={12} lg={10}>
               <FormikProvider value={formik}>
                 <Form autoComplete="on" noValidate onSubmit={handleSubmit}>
                   <TextField
@@ -158,32 +138,73 @@ function Signup(props) {
                     helperText={touched.email && errors.email}
                     sx={{ mb: 3 }}
                   />
-                  <FormControl fullWidth sx={{ mb: 3 }}>
-                    <TextField
-                      fullWidth
-                      autoComplete="current-password"
-                      type={showPassword ? "text" : "password"}
-                      placeholder="Password"
-                      {...getFieldProps("password")}
-                      error={Boolean(touched.password && errors.password)}
-                      helperText={touched.password && errors.password}
-                      InputProps={{
-                        endAdornment: (
-                          <InputAdornment position="end">
-                            <IconButton
-                              onClick={() => setShowPassword((prev) => !prev)}
-                            >
-                              {showPassword ? (
-                                <VisibilityOff />
-                              ) : (
-                                <Visibility />
-                              )}
-                            </IconButton>
-                          </InputAdornment>
-                        ),
-                      }}
-                    />
-                  </FormControl>
+                  <Grid container spacing={{ xs: 2, md: 2 }}>
+                    <Grid item xs={12} md={12} lg={6}>
+                      <FormControl fullWidth sx={{ mb: 3 }}>
+                        <TextField
+                          fullWidth
+                          autoComplete="current-password"
+                          type={showPassword ? "text" : "password"}
+                          placeholder="Password"
+                          {...getFieldProps("password")}
+                          error={Boolean(touched.password && errors.password)}
+                          helperText={touched.password && errors.password}
+                          InputProps={{
+                            endAdornment: (
+                              <InputAdornment position="end">
+                                <IconButton
+                                  onClick={() =>
+                                    setShowPassword((prev) => !prev)
+                                  }
+                                >
+                                  {showPassword ? (
+                                    <VisibilityOff />
+                                  ) : (
+                                    <Visibility />
+                                  )}
+                                </IconButton>
+                              </InputAdornment>
+                            ),
+                          }}
+                        />
+                      </FormControl>
+                    </Grid>
+                    <Grid item xs={12} md={12} lg={6}>
+                      <FormControl fullWidth sx={{ mb: 3 }}>
+                        <TextField
+                          fullWidth
+                          autoComplete="current-password"
+                          type={showConfirmPassword ? "text" : "password"}
+                          placeholder="Confirm Password"
+                          {...getFieldProps("confirmPassword")}
+                          error={Boolean(
+                            touched.confirmPassword && errors.confirmPassword
+                          )}
+                          helperText={
+                            touched.confirmPassword && errors.confirmPassword
+                          }
+                          InputProps={{
+                            endAdornment: (
+                              <InputAdornment position="end">
+                                <IconButton
+                                  onClick={() =>
+                                    setShowConfirmPassword((prev) => !prev)
+                                  }
+                                >
+                                  {showConfirmPassword ? (
+                                    <VisibilityOff />
+                                  ) : (
+                                    <Visibility />
+                                  )}
+                                </IconButton>
+                              </InputAdornment>
+                            ),
+                          }}
+                        />
+                      </FormControl>
+                    </Grid>
+                  </Grid>
+
                   <Typography
                     variant="body1"
                     gutterBottom

@@ -5,7 +5,7 @@
 .checkout_section {
     & .indicators {
         position  : relative;
-        margin-top: 50px;
+        margin-top: 30px;
 
         @include media-mobile-md-max {
             margin-top: 30px;
@@ -19,13 +19,13 @@
         }
 
         & li {
-            width           : 40px;
-            height          : 40px;
+            width           : 35px;
+            height          : 35px;
             border          : 1px solid $gray-color;
             background-color: $white-color;
             font-family     : $primary-font;
             font-weight     : 600;
-            font-size       : 20px;
+            font-size       : 18px;
             border-radius   : 100%;
             display         : flex;
             align-items     : center;
@@ -35,6 +35,58 @@
                 background-color: $primary-color;
             }
         }
+    }
+
+    & .stepper {
+        position: relative;
+
+        &::after {
+            border-bottom                   : 1px solid $gray-color;
+            content                         : "";
+            @include position(absolute, $top:25, $left:0, $right:0);
+            z-index                         : -1;
+        }
+
+        & .stepper-item {
+            width           : 35px;
+            height          : 35px;
+            border          : 1px solid $gray-color;
+            background-color: $white-color;
+            font-family     : $primary-font;
+            font-weight     : 600;
+            font-size       : 18px;
+            border-radius   : 100%;
+            display         : flex;
+            align-items     : center;
+            justify-content : center;
+
+            &.active {
+                background-color: $primary-color;
+            }
+        }
+    }
+
+    & input {
+        padding: 16.5px 15px;
+        border : 1px solid #F2F2F2;
+        @include border-radius(50px);
+        font-size : 14px;
+        display   : block;
+        width     : 100%;
+        box-sizing: border-box;
+        @include transition(all 0.4s ease);
+
+        &:focus-visible {
+            border    : 1px solid $primary-color;
+            box-shadow: none;
+            outline   : 0;
+        }
+    }
+
+    & .error-msg {
+        color     : #d32f2f;
+        font-size : 13px;
+        margin-top: 5px;
     }
 
     & .btn-login {

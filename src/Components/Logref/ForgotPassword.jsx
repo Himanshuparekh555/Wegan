@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { Form, FormikProvider, useFormik } from "formik";
+import * as Yup from "yup";
 import GoVeganImg from "../../Images/go-vegan.png";
 import "./index.scss";
 // Material Ints
@@ -10,32 +12,36 @@ import {
   Button,
   Link,
   FormControl,
-  OutlinedInput,
   InputAdornment,
   IconButton,
 } from "@mui/material";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
+import { LoadingButton } from "@mui/lab";
 const ForgotPassword = (props) => {
   // Password hide / show
   const [showPassword, setShowPassword] = useState(false);
-  const [values, setValues] = React.useState({
-    showPassword: false,
+  // Formik Validation
+  const SignupSchema = Yup.object().shape({
+    email: Yup.string()
+      .email("Provide a valid email address")
+      .required("Email is required"),
+    password: Yup.string().required("Password is required"),
   });
-  const handleChange = (prop) => (event) => {
-    setValues({ ...values, [prop]: event.target.value });
-  };
-
-  const handleClickShowPassword = () => {
-    setValues({
-      ...values,
-      showPassword: !values.showPassword,
-    });
-  };
-
-  const handleMouseDownPassword = (event) => {
-    event.preventDefault();
-  };
+  const formik = useFormik({
+    initialValues: {
+      email: "",
+      password: "",
+    },
+    validationSchema: SignupSchema,
+    onSubmit: () => {
+      console.log("submitting...");
+      setTimeout(() => {
+        console.log("submited!!");
+      }, 2000);
+    },
+  });
+  const { errors, touched, isSubmitting, handleSubmit, getFieldProps } = formik;
   return (
     <>
       <Grid container className="panel">
@@ -138,99 +144,109 @@ const ForgotPassword = (props) => {
                 >
                   {"OTP sent to Mobile"}
                 </Typography>
-                <Box sx={{ mb: 3, position: "relative" }}>
-                  <TextField
-                    fullWidth
-                    placeholder="Enter OTP"
-                    variant="outlined"
-                  />
-                  <Link
-                    underline="none"
-                    sx={{
-                      position: "absolute",
-                      color: "#333",
-                      right: 20,
-                      top: 15,
-                      cursor: "pointer",
-                      fontSize: "14px",
-                    }}
-                  >
-                    {"Resend?"}
-                  </Link>
-                </Box>
-                <FormControl fullWidth sx={{ mb: 3 }}>
-                  <OutlinedInput
-                    placeholder="Password"
-                    id="outlined-adornment-password"
-                    type={values.showPassword ? "text" : "password"}
-                    value={values.password}
-                    onChange={handleChange("password")}
-                    endAdornment={
-                      <InputAdornment position="end">
-                        <IconButton
-                          aria-label="toggle password visibility"
-                          onClick={handleClickShowPassword}
-                          onMouseDown={handleMouseDownPassword}
-                          edge="end"
-                        >
-                          {values.showPassword ? (
-                            <VisibilityOff />
-                          ) : (
-                            <Visibility color="disabled" />
-                          )}
-                        </IconButton>
-                      </InputAdornment>
-                    }
-                  />
-                </FormControl>
-                <Grid
-                  container
-                  sx={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                  }}
-                >
-                  <Grid item xs={8}>
-                    <Button
-                      sx={{ borderRadius: 50, p: 1.5 }}
-                      className="btn-theme w-100"
-                      disableElevation
-                      variant="contained"
-                    >
-                      {"Login"}
-                    </Button>
-                    <Box
-                      sx={{
-                        display: "flex",
-                        justifyContent: "center",
-                        mt: 3,
-                      }}
-                    >
-                      <Typography
-                        variant="caption"
-                        sx={{ fontSize: "14px", fontWeight: 400, mb: 3 }}
-                      >
-                        {"Existing User?"}
-                      </Typography>
+                <FormikProvider value={formik}>
+                  <Form autoComplete="on" noValidate onSubmit={handleSubmit}>
+                    <Box sx={{ mb: 3, position: "relative" }}>
+                      <TextField
+                        fullWidth
+                        placeholder="Enter OTP"
+                        variant="outlined"
+                      />
                       <Link
                         underline="none"
-                        color="inherit"
-                        onClick={() => {
-                          props?.setShowPanel(1);
-                        }}
                         sx={{
-                          p: 0,
-                          fontWeight: 600,
-                          ml: 0.5,
+                          position: "absolute",
+                          color: "#333",
+                          right: 20,
+                          top: 15,
                           cursor: "pointer",
+                          fontSize: "14px",
                         }}
                       >
-                        {"Log in"}
+                        {"Resend?"}
                       </Link>
                     </Box>
-                  </Grid>
-                </Grid>
+                    <FormControl fullWidth sx={{ mb: 3 }}>
+                      <TextField
+                        fullWidth
+                        autoComplete="current-password"
+                        type={showPassword ? "text" : "password"}
+                        placeholder="Password"
+                        {...getFieldProps("password")}
+                        error={Boolean(touched.password && errors.password)}
+                        helperText={touched.password && errors.password}
+                        InputProps={{
+                          endAdornment: (
+                            <InputAdornment position="end">
+                              <IconButton
+                                onClick={() => setShowPassword((prev) => !prev)}
+                              >
+                                {showPassword ? (
+                                  <VisibilityOff />
+                                ) : (
+                                  <Visibility />
+                                )}
+                              </IconButton>
+                            </InputAdornment>
+                          ),
+                        }}
+                      />
+                    </FormControl>
+                    <Grid
+                      container
+                      sx={{
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                      }}
+                    >
+                      <Grid item xs={8}>
+                        <LoadingButton
+                          sx={{
+                            borderRadius: 50,
+                            p: 1.5,
+                            height: "52px",
+                          }}
+                          className="btn-theme w-100"
+                          fullWidth
+                          type="submit"
+                          loading={isSubmitting}
+                        >
+                          {isSubmitting ? "" : "Login"}
+                        </LoadingButton>
+                        <Box
+                          sx={{
+                            display: "flex",
+                            justifyContent: "center",
+                            mt: 3,
+                          }}
+                        >
+                          <Typography
+                            variant="caption"
+                            sx={{ fontSize: "14px", fontWeight: 400, mb: 3 }}
+                          >
+                            {"Existing User?"}
+                          </Typography>
+                          <Link
+                            underline="none"
+                            color="inherit"
+                            onClick={() => {
+                              props?.setShowPanel(1);
+                            }}
+                            sx={{
+                              p: 0,
+                              fontWeight: 600,
+                              ml: 0.5,
+                              cursor: "pointer",
+                            }}
+                          >
+                            {"Log in"}
+                          </Link>
+                        </Box>
+                      </Grid>
+                    </Grid>
+                  </Form>
+                </FormikProvider>
               </Grid>
             </Grid>
           </Box>
