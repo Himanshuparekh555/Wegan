@@ -66,7 +66,7 @@
         }
     }
 
-    & input {
+    & .form-control {
         padding: 16.5px 15px;
         border : 1px solid #F2F2F2;
         @include border-radius(50px);

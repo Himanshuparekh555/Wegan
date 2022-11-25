@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { ErrorMessage, Field, Form, Formik } from "formik";
 import { FormContext } from "../../Checkout";
 import * as yup from "yup";
-import Summary from "../../Summary";
+import SummaryDetails from "../../Summary";
 import LoginDialog from "../../../Logref/Dialog";
 // Material Ints
 import { Grid, Box, Typography, Button } from "@mui/material";
@@ -23,7 +23,10 @@ function Detail() {
 
   const ValidationSchema = yup.object().shape({
     email: yup.string().email().required(),
-    password: yup.string().required(),
+    password: yup
+      .string()
+      .min(4, "Password has to be longer than 4 characters!")
+      .required(),
   });
 
   return (
@@ -58,7 +61,7 @@ function Detail() {
                 <Box sx={{ mb: 3 }}>
                   <Field
                     name="email"
-                    className="w-100"
+                    className="form-control"
                     placeholder="Your email address"
                   />
                   <ErrorMessage name="email" render={renderError} />
@@ -124,7 +127,7 @@ function Detail() {
           </Box>
         </Grid>
         <Grid item xs={12} sm={6} md={6}>
-          <Summary />
+          <SummaryDetails />
         </Grid>
       </Grid>
       <LoginDialog

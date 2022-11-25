@@ -199,9 +199,10 @@ span {
       }
 
       & a {
-        font-family: $primary-font;
-        font-size  : 14px;
-        color      : $black-color;
+        font-family    : $primary-font;
+        font-size      : 14px;
+        color          : $black-color;
+        text-decoration: none;
 
         &:hover {
           color: $primary-color;

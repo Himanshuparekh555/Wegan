@@ -31,19 +31,22 @@ const StyledButton = styled(Button)`
 `;
 
 function ShoppingCart() {
-  const navigate = useNavigate();
-  const navigateToCheckout = () => {
-    // navigate to Checkout
-    navigate("/checkout");
-  };
-  const navigateToDetail = () => {
-    // navigate to Checkout
-    navigate("/product-detail");
-  };
-  const navigateRemoveCart = () => {
-    // navigate to Checkout
-    navigate("/cart-empty");
-  };
+  const history = useNavigate();
+  function navigateToCheckout(e) {
+    e.preventDefault();
+
+    history("/checkout");
+  }
+  function navigateRemoveCart(e) {
+    e.preventDefault();
+
+    history("/cart-empty");
+  }
+  function navigateToDetail(e) {
+    e.preventDefault();
+
+    history("/product-detail");
+  }
 
   // Increment and Decrement Value
   const [num, setNum] = useState(0);

@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, Link } from "react-router-dom";
 import "./index.scss";
 
 import ImageGallery from "react-image-gallery";
@@ -17,7 +17,6 @@ import {
   styled,
   Grid,
   Box,
-  Link,
   Container,
   Breadcrumbs,
   Typography,
@@ -28,7 +27,6 @@ import {
   Avatar,
   Button,
   Rating,
-  ToggleButton,
   Checkbox,
 } from "@mui/material";
 
@@ -81,11 +79,17 @@ const StyledRating = styled(Rating)({
   },
 });
 const ProductDetail = () => {
-  const navigate = useNavigate();
-  const navigateToCart = () => {
-    // navigate to Add to Cart
-    navigate("/shopping-cart");
-  };
+  const history = useNavigate();
+  function navigateToCart(e) {
+    e.preventDefault();
+
+    history("/shopping-cart");
+  }
+  function navigateToCheckout(e) {
+    e.preventDefault();
+
+    history("/checkout");
+  }
 
   const [selected, setSelected] = React.useState(false);
   // Rating Value
@@ -100,13 +104,13 @@ const ProductDetail = () => {
             aria-label="breadcrumb"
             className="breadcrumbs"
           >
-            <Link underline="none" color="inherit" href="/">
+            <Link underline="none" color="inherit" to="/">
               {"Home"}
             </Link>
-            <Link underline="none" color="inherit" href="/">
+            <Link underline="none" color="inherit" to="/">
               {"Categories"}
             </Link>
-            <Link underline="none" color="inherit" href="/">
+            <Link underline="none" color="inherit" to="/">
               {"Dairy Item"}
             </Link>
             <Typography color="text.primary">{"Whole milk 1 pint"}</Typography>
@@ -179,7 +183,7 @@ const ProductDetail = () => {
                 </Grid>
                 <Grid item xs={9} sm={5} md={4}>
                   <Button
-                    onClick={navigateToCart}
+                    onClick={navigateToCheckout}
                     className="btn-theme w-100"
                     sx={{ borderRadius: 10, pt: 1.5, pb: 1.5 }}
                   >
@@ -192,7 +196,7 @@ const ProductDetail = () => {
                   sm={2}
                   md={2}
                   sx={{ display: "flex" }}
-                  justifyContent={{ xs: "end", md: "start" }}
+                  justifyContent={{ xs: "center", md: "start" }}
                 >
                   <Box className="favorite">
                     <Checkbox

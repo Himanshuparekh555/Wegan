@@ -12,6 +12,7 @@ import {
   InputAdornment,
   FormControl,
 } from "@mui/material";
+import { green, grey } from "@mui/material/colors";
 import { LoadingButton } from "@mui/lab";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
@@ -30,8 +31,11 @@ function Signup(props) {
     email: Yup.string()
       .email("Provide a valid email address")
       .required("Email is required"),
-    password: Yup.string().required("Password is required"),
+    password: Yup.string()
+      .min(4, "Password has to be longer than 4 characters!")
+      .required("Password is required"),
     confirmPassword: Yup.string()
+      .min(4, "Password has to be longer than 4 characters!")
       .required("Enter the Confirm password")
       .oneOf([Yup.ref("password"), null], "Passwords didn't match"),
   });
@@ -158,9 +162,9 @@ function Signup(props) {
                                   }
                                 >
                                   {showPassword ? (
-                                    <VisibilityOff />
+                                    <VisibilityOff sx={{ color: green[100] }} />
                                   ) : (
-                                    <Visibility />
+                                    <Visibility sx={{ color: green[100] }} />
                                   )}
                                 </IconButton>
                               </InputAdornment>
@@ -192,9 +196,9 @@ function Signup(props) {
                                   }
                                 >
                                   {showConfirmPassword ? (
-                                    <VisibilityOff />
+                                    <VisibilityOff sx={{ color: grey[500] }} />
                                   ) : (
-                                    <Visibility />
+                                    <Visibility sx={{ color: grey[500] }} />
                                   )}
                                 </IconButton>
                               </InputAdornment>

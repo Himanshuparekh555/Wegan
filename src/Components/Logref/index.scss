@@ -68,6 +68,10 @@
             }
         }
     }
+
+    & .MuiCircularProgress-svg {
+        color: $black-light-color;
+    }
 }
 
 /* Dialog Box */

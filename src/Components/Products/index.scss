@@ -190,7 +190,7 @@
 
                     &.active,
                     &:hover {
-                        border: 1px solid $primary-color;
+                        border: 2px solid $primary-color;
                     }
 
                     @include media-mobile-sm {

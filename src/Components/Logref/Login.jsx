@@ -4,7 +4,6 @@ import * as Yup from "yup";
 import "./index.scss";
 
 import GoVeganImg from "../../Images/go-vegan.png";
-import OTPInput from "otp-input-react";
 // Material Ints
 import {
   Grid,
@@ -17,6 +16,7 @@ import {
   InputAdornment,
   FormControl,
 } from "@mui/material";
+import { grey } from "@mui/material/colors";
 import { LoadingButton } from "@mui/lab";
 import Visibility from "@mui/icons-material/Visibility";
 import VisibilityOff from "@mui/icons-material/VisibilityOff";
@@ -30,32 +30,14 @@ function Login(props) {
     showPassword: false,
   });
 
-  const handleChange = (prop) => (event) => {
-    setValues({ ...values, [prop]: event.target.value });
-  };
-
-  const handleClickShowPassword = () => {
-    setValues({
-      ...values,
-      showPassword: !values.showPassword,
-    });
-  };
-
-  const handleMouseDownPassword = (event) => {
-    event.preventDefault();
-  };
-
-  const [showPanel, setShowPanel] = useState(1);
-  const handlepanel = (e) => {
-    setShowPanel(e);
-  };
-
   // Form Validation
   const LoginSchema = Yup.object().shape({
     email: Yup.string()
       .email("Provide a valid email address")
       .required("Email is required"),
-    password: Yup.string().required("Password is required"),
+    password: Yup.string()
+      .min(4, "Password has to be longer than 4 characters!")
+      .required("Password is required"),
     // phone: Yup.string()
     //   .required("This field is Required")
     //   .matches(
@@ -192,9 +174,9 @@ function Login(props) {
                                   }
                                 >
                                   {showPassword ? (
-                                    <VisibilityOff />
+                                    <VisibilityOff sx={{ color: grey[500] }} />
                                   ) : (
-                                    <Visibility />
+                                    <Visibility sx={{ color: grey[500] }} />
                                   )}
                                 </IconButton>
                               </InputAdornment>

@@ -16,7 +16,7 @@ import {
   Button,
 } from "@mui/material";
 import LocationSearchingIcon from "@mui/icons-material/LocationSearching";
-
+import { grey } from "@mui/material/colors";
 const BpIcon = styled("span")(({ theme }) => ({
   borderRadius: "50%",
   width: 20,
@@ -63,9 +63,12 @@ function Shipping() {
   const renderError = (message) => <p className="error-msg">{message}</p>;
 
   const ValidationSchema = yup.object().shape({
-    name: yup.string().required(),
+    username: yup.string().required(),
     email: yup.string().email().required(),
-    password: yup.string().required(),
+    password: yup
+      .string()
+      .min(4, "Password has to be longer than 4 characters!")
+      .required(),
     mobile: yup
       .string()
       .required()
@@ -81,8 +84,8 @@ function Shipping() {
     city: yup.string().required(),
     state: yup.string().required(),
     country: yup.string().required(),
+    gender: yup.string().required("Gender is required"),
   });
-
   return (
     <>
       <Grid container spacing={{ xs: 5, md: 12 }} sx={{ mb: 6 }}>
@@ -93,14 +96,16 @@ function Shipping() {
           >
             <Formik
               initialValues={{
-                name: "",
+                username: "",
                 email: "",
                 mobile: "",
+                password: "",
                 zipcode: "",
                 address: "",
                 city: "",
                 state: "",
                 country: "",
+                gender: "",
               }}
               validationSchema={ValidationSchema}
               onSubmit={(values) => {
@@ -134,17 +139,17 @@ function Shipping() {
                 </Button>
                 <Box sx={{ mb: 3 }}>
                   <Field
-                    name="name"
-                    className="w-100"
+                    name="username"
+                    className="form-control"
                     placeholder="Full Name"
                   />
-                  <ErrorMessage name="name" render={renderError} />
+                  <ErrorMessage name="username" render={renderError} />
                 </Box>
                 <Box sx={{ mb: 3 }}>
                   <Field
                     name="email"
-                    className="w-100"
-                    placeholder="Your email address"
+                    className="form-control"
+                    placeholder="Email Address"
                   />
                   <ErrorMessage name="email" render={renderError} />
                 </Box>
@@ -152,10 +157,19 @@ function Shipping() {
                   <Field
                     name="mobile"
                     className="form-control"
-                    placeholder="Mobile number"
+                    placeholder="Mobile Number"
                     type="text"
                   />
                   <ErrorMessage name="mobile" render={renderError} />
+                </Box>
+                <Box sx={{ mb: 3, position: "relative" }}>
+                  <Field
+                    name="password"
+                    className="form-control"
+                    placeholder="Password"
+                    type="password"
+                  />
+                  <ErrorMessage name="password" render={renderError} />
                 </Box>
                 <Box sx={{ mb: 3 }}>
                   <Field
@@ -232,16 +246,19 @@ function Shipping() {
                     name="customized-radios"
                   >
                     <FormControlLabel
+                      name="gender"
                       value="Home"
                       control={<BpRadio />}
                       label="Home"
                     />
                     <FormControlLabel
-                      value="Work (Office)"
+                      name="gender"
+                      value="Work"
                       control={<BpRadio />}
                       label="Work (Office)"
                     />
                   </RadioGroup>
+                  <ErrorMessage name="gender" render={renderError} />
                 </FormControl>
                 <FormControl fullWidth sx={{ mt: 3.5 }}>
                   <FormLabel sx={{ mb: 1, color: "inherit", fontSize: 24 }}>

@@ -56,6 +56,7 @@ const LoginCheckout = (props) => {
               <Button
                 size="small"
                 sx={{
+                  textTransform: "capitalize",
                   position: "absolute",
                   right: 10,
                   top: 12,
