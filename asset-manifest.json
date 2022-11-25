@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/Wegan/static/css/main.47bae3c3.css",
-    "main.js": "/Wegan/static/js/main.d5a3aefe.js",
+    "main.css": "/Wegan/static/css/main.5e59f34c.css",
+    "main.js": "/Wegan/static/js/main.9be0e72e.js",
     "static/js/787.b9c32451.chunk.js": "/Wegan/static/js/787.b9c32451.chunk.js",
     "static/media/product_image.png": "/Wegan/static/media/product_image.10525e6aeb80887cab54.png",
     "static/media/cart-empty.svg": "/Wegan/static/media/cart-empty.10918ed70fb01165e6660b5877e3e87c.svg",
@@ -61,12 +61,12 @@
     "static/media/profile_icon.svg": "/Wegan/static/media/profile_icon.b89aa26ba9e60bac16019c755d20b1e2.svg",
     "static/media/sbi_icon.svg": "/Wegan/static/media/sbi_icon.5050ae237ffbf58b95e2a98db42569ce.svg",
     "static/media/facebook_icon.svg": "/Wegan/static/media/facebook_icon.e7f87e3081d215065878d002dcc8d953.svg",
-    "main.47bae3c3.css.map": "/Wegan/static/css/main.47bae3c3.css.map",
-    "main.d5a3aefe.js.map": "/Wegan/static/js/main.d5a3aefe.js.map",
+    "main.5e59f34c.css.map": "/Wegan/static/css/main.5e59f34c.css.map",
+    "main.9be0e72e.js.map": "/Wegan/static/js/main.9be0e72e.js.map",
     "787.b9c32451.chunk.js.map": "/Wegan/static/js/787.b9c32451.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.47bae3c3.css",
-    "static/js/main.d5a3aefe.js"
+    "static/css/main.5e59f34c.css",
+    "static/js/main.9be0e72e.js"
   ]
 }
